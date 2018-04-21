@@ -8,7 +8,8 @@ public class MakingMoneyController : MonoBehaviour {
 
     public GameObject moneyMaker;
     public GameObject player;
-    public Text textMoney;
+    public Text textSilverCoins;
+    public Text textCopperCoins;
     public Text collectText;
     public float maximumMoney;
     public Button unlockButton;
@@ -18,8 +19,8 @@ public class MakingMoneyController : MonoBehaviour {
     public Button upgrade2Button;
 
     private bool unlock;
-    public float timeTillNext = 60;
-    float timer = 60;
+    public float timeTillNext = 5;
+    public float timer = 5;
 
     int upgradeCost;
     int upgradeCount;
@@ -39,7 +40,8 @@ public class MakingMoneyController : MonoBehaviour {
     {
         //úprava textu
         collectText.text = collectebleMoney + "/" + maximumMoney + "$";
-        textMoney.text = "MONEY: " + playerStats.GetSilverCoins().ToString()+ "silverů"+ playerStats.GetCopperCoins().ToString() + "copperů";
+        textSilverCoins.text = playerStats.GetSilverCoins().ToString();
+        textCopperCoins.text = playerStats.GetCopperCoins().ToString();
         if(unlock == true)
         {
             // jestli je odmčeno těžení dřeva přidávají se peníze
