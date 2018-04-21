@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour {
     {
         instance = this;
         health = stamina * level * staminaToHealthMultiplier * (int)(strength * 0.25);
+        print(instance);
     }
 
     public void TakeDamage(int amount)

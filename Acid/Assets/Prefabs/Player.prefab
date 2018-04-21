@@ -64,7 +64,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &70898956305406496
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -109,7 +109,7 @@ MonoBehaviour:
   luck: 1
   armorLevel: 1
   weaponLevel: 1
-  copperCoins: 0
+  copperCoins: 2000
   experience: 0
   staminaToHealthMultiplier: 9
   health: 0

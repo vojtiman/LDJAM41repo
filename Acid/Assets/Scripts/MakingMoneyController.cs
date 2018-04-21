@@ -43,7 +43,6 @@ public class MakingMoneyController : MonoBehaviour {
     {
         // přidává
         timeTillNext -= Time.deltaTime;
-        Debug.Log(timeTillNext);
         if (timeTillNext <=0)
         {
 
