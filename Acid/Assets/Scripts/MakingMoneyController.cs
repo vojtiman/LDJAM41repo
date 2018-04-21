@@ -11,99 +11,91 @@ public class MakingMoneyController : MonoBehaviour {
     public Text textSilverCoins;
     public Text textCopperCoins;
     public Text collectText;
-    public float maximumMoney;
+    public int maximumMoney = 20;
     public Button unlockButton;
     public GameObject upgrade1;
     public GameObject upgrade2;
     public Button upgrade1Button;
     public Button upgrade2Button;
 
-    private bool unlock;
-    public float timeTillNext = 5;
-    public float timer = 5;
+    public float timeTillNext = 2;
+    public float timer = 2;
 
-    int upgradeCost;
-    int upgradeCount;
     private PlayerStats playerStats;
     private int collectebleMoney;
-    private int addingMoney = 10;
+    private int addingMoney = 1;
     void Start()
     {
         // připojení na hráčův script stats
         playerStats = player.GetComponent<PlayerStats>();
-        unlock = false;
-        upgradeCount = 1;
-        upgradeCost = 60;
     }
 
     private void Update()
     {
         //úprava textu
-        collectText.text = collectebleMoney + "/" + maximumMoney + "$";
+        collectText.text = collectebleMoney + "/" + maximumMoney;
         textSilverCoins.text = playerStats.GetSilverCoins().ToString();
         textCopperCoins.text = playerStats.GetCopperCoins().ToString();
-        if(unlock == true)
-        {
-            // jestli je odmčeno těžení dřeva přidávají se peníze
-            makingMoneyPerMinute();
-        }
+        makingMoneyPerMinute();
     }
 
     public void makingMoneyPerMinute()
     {
-        // přidává peníze po minutě
+        // přidává
         timeTillNext -= Time.deltaTime;
         Debug.Log(timeTillNext);
         if (timeTillNext <=0)
         {
+
             if(collectebleMoney < maximumMoney)
             {
                 collectebleMoney += addingMoney;
+                if (collectebleMoney >= maximumMoney)
+                    collectebleMoney = maximumMoney;
+                timeTillNext = timer;
             }
-            timeTillNext = timer;
+            
         }
     }
 
 
+    public void UpgradeWood()
+    {
+        if(playerStats.GetSilverCoins()>= 1)
+        {
+            int random = Random.Range(1, 10);
+            if(random == 5)
+            {
+                addingMoney += 1;
+            }
+            maximumMoney += 1;
+            playerStats.getMoney(-100);
+        }
 
+    }
     public void upgradeWood1()
     {
-        // upgrade tlačítka
-        if(unlock == true && playerStats.copperCoins >= upgradeCost && upgradeCount == 1)
+        if(playerStats.GetSilverCoins() >= 10)
         {
-            playerStats.getMoney(-upgradeCost);
-            upgradeCost += 100;
-            upgradeCount = 2;
-            maximumMoney = 30;
-            addingMoney = 15;
-            upgrade1Button.image.color = Color.green;
-            upgrade2.SetActive(true);
+            int random = Random.Range(1, 8);
+            if (random == 5)
+                addingMoney += 4;
+            maximumMoney += 10;
+            playerStats.getMoney(-1000);
+        }
 
-        }
-    }
-    public void upgradeWood2()
-    {
-        if (unlock == true && playerStats.copperCoins >= upgradeCost && upgradeCount == 2)
-        {
-            playerStats.getMoney(-upgradeCost);
-            upgrade2Button.image.color = Color.green;
-            maximumMoney = 40;
-            addingMoney = 20;
-        }
-    }
-    public void UnLock()
-    {
-        // odemkte těžení dřeva
-        if(playerStats.copperCoins >= 5)
-        {
-            
-            unlock = true;
-            playerStats.getMoney(-5);
-            
-            unlockButton.image.color = Color.green;
-            upgrade1.SetActive(true);
-        }
         
+    }
+    public void UpgradeWood2()
+    {
+        if(playerStats.GetSilverCoins()>=100)
+        {
+            int random = Random.Range(1, 3);
+            if(random == 2)
+                addingMoney += 10;
+            maximumMoney += 100;
+            playerStats.getMoney(-10000);
+        }
     }
     public void moneyCollect()
     {
