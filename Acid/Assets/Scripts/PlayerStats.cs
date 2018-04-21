@@ -1,19 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
-
-    public float atackPower;
-    public float health;
+    public static PlayerStats instance;
+    public int level = 1;
+    public int strength = 5;
+    public int stamina = 3;
+    public int luck = 1;
+    public int armorLevel = 1;
+    public int weaponLevel = 1;
     public int copperCoins;
-    
+    public int experience = 0;
 
-    public void RemoveHealt(float howMuchHealtRemove)
+    public int staminaToHealthMultiplier;
+    public int health;
+
+    private void Start()
     {
-        health -= howMuchHealtRemove;
+        instance = this;
+        health = stamina * level * staminaToHealthMultiplier * (int)(strength * 0.25);
     }
 
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+    }
 
     public int GetSilverCoins()
     {
@@ -21,11 +31,13 @@ public class PlayerStats : MonoBehaviour {
 
         return silverCoinsCount;
     }
+
     public int GetCopperCoins()
     {
         int copperCoinsCount = copperCoins % 100;
         return copperCoinsCount;
     }
+
     public void getMoney(int plusMoney)
     {
         copperCoins += plusMoney;
