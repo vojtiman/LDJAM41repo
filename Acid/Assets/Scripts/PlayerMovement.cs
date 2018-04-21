@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, dir, 32f);
 
         print(dir);
-        if (hitInfo.transform != null)
+        if (!hitInfo.transform.CompareTag("Player") && !hitInfo.collider.isTrigger)
             return;
         transform.position += (Vector3)dir;
     }
