@@ -21,7 +21,7 @@ public class MakingMoneyController : MonoBehaviour {
     public float timeTillNext = 60;
     float timer = 60;
 
-    int upgradeCost = 60;
+    int upgradeCost;
     int upgradeCount;
     private PlayerStats playerStats;
     private float collectebleMoney;
@@ -32,13 +32,14 @@ public class MakingMoneyController : MonoBehaviour {
         playerStats = player.GetComponent<PlayerStats>();
         unlock = false;
         upgradeCount = 1;
+        upgradeCost = 60;
     }
 
     private void Update()
     {
         //úprava textu
         collectText.text = collectebleMoney + "/" + maximumMoney + "$";
-        textMoney.text = "MONEY: " + playerStats.money + "$";
+        textMoney.text = "MONEY: " + Round(playerStats.money,2) + "$";
         if(unlock == true)
         {
             // jestli je odmčeno těžení dřeva přidávají se peníze
@@ -63,7 +64,7 @@ public class MakingMoneyController : MonoBehaviour {
 
 
 
-    public void upgradeWood()
+    public void upgradeWood1()
     {
         // upgrade tlačítka
         if(unlock == true && playerStats.money >= upgradeCost && upgradeCount == 1)
@@ -77,6 +78,9 @@ public class MakingMoneyController : MonoBehaviour {
             upgrade2.SetActive(true);
 
         }
+    }
+    public void upgradeWood2()
+    {
         if (unlock == true && playerStats.money >= upgradeCost && upgradeCount == 2)
         {
             playerStats.getMoney(-upgradeCost);
@@ -128,5 +132,13 @@ public class MakingMoneyController : MonoBehaviour {
         {
             moneyMaker.SetActive(false);
         }
+    }
+    public static float Round(float value, int digits)
+    {
+        float mult = Mathf.Pow(10.0f, (float)digits);
+        float zaokrouhleni = (Mathf.Round(value * mult) / mult) - 0.1f;
+        if (zaokrouhleni < 0)
+            zaokrouhleni = (Mathf.Round(value * mult) / mult);
+        return zaokrouhleni;
     }
 }
