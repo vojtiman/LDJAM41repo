@@ -4,9 +4,17 @@ timeCreated: 1524300049
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: rpgcritters2_0
-    21300002: rpgcritters2_1
+    21300000: Spider
+    21300002: Skeleton
     21300004: rpgcritters2_2
+    21300006: SwampMonster
+    21300008: PoisonousHornet
+    21300010: Wyvern
+    21300012: Goblin
+    21300014: Eyebulb
+    21300016: rpgcritters2_0
+    21300018: GreenTurtle
+    21300020: Slime
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -114,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rpgcritters2_0
+      name: Spider
       rect:
         serializedVersion: 2
         x: 17
@@ -122,19 +130,19 @@ TextureImporter:
         width: 30
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: rpgcritters2_1
+      name: SwampMonster
       rect:
         serializedVersion: 2
-        x: 0
-        y: 104
-        width: 64
-        height: 64
+        x: 56
+        y: 192
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,13 +150,111 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: rpgcritters2_2
+      name: PoisonousHornet
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
-        width: 64
-        height: 64
+        x: 9
+        y: 146
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wyvern
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 136
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Goblin
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 94
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Eyebulb
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 100
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rpgcritters2_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 46
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 46
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GreenTurtle
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 13
+        width: 41
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Slime
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 12
+        width: 24
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
