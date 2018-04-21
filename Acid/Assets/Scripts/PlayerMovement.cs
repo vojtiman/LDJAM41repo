@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    public float direction;
+    public float speed;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,23 +12,34 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown("w"))
-        {
-            transform.position += new Vector3(0f, direction, 0f);
-        }
-        if (Input.GetKeyDown("s"))
-        {
-            transform.position += new Vector3(0f, -direction, 0f);
-        }
-        if (Input.GetKeyDown("a"))
-        {
-            transform.position += new Vector3(-direction, 0f, 0f);
-        }
-        if (Input.GetKeyDown("d"))
-        {
-            transform.position += new Vector3(direction, 0f, 0f);
-        }
+        Move();
     }
 
-    
+    void Move()
+    {
+        Vector2 dir = new Vector2(0, 0);
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            dir = new Vector2(0, speed);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            dir = new Vector2(0, -speed);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            dir = new Vector2(-speed, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            dir = new Vector2(speed, 0);
+        }
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, dir, 32f);
+
+        print(dir);
+        if (hitInfo.transform != null)
+            return;
+        transform.position += (Vector3)dir;
+    }
 }
