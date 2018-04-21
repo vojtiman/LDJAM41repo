@@ -19,12 +19,9 @@ public class PlayerStats : MonoBehaviour {
     private void Start()
     {
         instance = this;
-<<<<<<< HEAD
         health = stamina * level * staminaToHealthMultiplier * (int)(strength * 0.25);
         print(instance);
-=======
         health = stamina * level * staminaToHealthMultiplier * Mathf.CeilToInt(strength * 0.25f);
->>>>>>> f292648c994f76a181a1e8745de460ec55e454b3
     }
 
     public void TakeDamage(int amount)
