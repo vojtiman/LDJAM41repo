@@ -1,11 +1,32 @@
-﻿using UnityEngine;
+﻿using UnityEngine.UI;
+using UnityEngine;
 
 public class Teacher : MonoBehaviour {
     public GameObject teacherPanel;
     public float maxDistance = 200;
 
-	// Use this for initialization
-	void Start () {
+    public Text strength;
+    public Text stamina;
+    public Text luck;
+    public Text weaponLevel;
+    public Text armorLevel;
+
+    [Header("Price Scaling")]
+    public float priceScalingStrength;
+    public float priceScalingStamina;
+    public float priceScalingLuck;
+    public float priceScalingWeapon;
+    public float priceScalingArmor;
+
+    [Header("Price of")]
+    public int priceOfStrength;
+    public int priceOfStamina;
+    public int priceOfLuck;
+    public int priceOfWeapon;
+    public int priceOfArmor;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -17,6 +38,17 @@ public class Teacher : MonoBehaviour {
     public void OpenTeacherPanel()
     {
         teacherPanel.SetActive(true);
+        UpdateTeacherPanel();
+    }
+
+    void UpdateTeacherPanel()
+    {
+        PlayerStats ps = PlayerStats.instance;
+        strength.text = ps.strength.ToString();
+        stamina.text = ps.stamina.ToString();
+        luck.text = ps.luck.ToString();
+        armorLevel.text = ps.armorLevel.ToString();
+        weaponLevel.text = ps.weaponLevel.ToString();
     }
 
     void CheckDistance()
