@@ -119,7 +119,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfStrength)
         {
-            PlayerStats.instance.getMoney(-actualPriceOfStrength);
+            PlayerStats.instance.GetMoney(-actualPriceOfStrength);
             PlayerStats.instance.strength += 1;
             UpdatePricesOfStats();
             UpdateTeacherPanel();
@@ -131,7 +131,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfStamina)
         {
-            PlayerStats.instance.getMoney(-actualPriceOfStamina);
+            PlayerStats.instance.GetMoney(-actualPriceOfStamina);
             PlayerStats.instance.stamina += 1;
             UpdatePricesOfStats();
             UpdateTeacherPanel();
@@ -143,7 +143,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfLuck)
         {
-            PlayerStats.instance.getMoney(-actualPriceOfLuck);
+            PlayerStats.instance.GetMoney(-actualPriceOfLuck);
             PlayerStats.instance.luck += 1;
             UpdatePricesOfStats();
             UpdateTeacherPanel();
@@ -155,7 +155,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfArmor)
         {
-            PlayerStats.instance.getMoney(-actualPriceOfArmor);
+            PlayerStats.instance.GetMoney(-actualPriceOfArmor);
             PlayerStats.instance.armorLevel += 1;
             UpdatePricesOfStats();
             UpdateTeacherPanel();
@@ -167,7 +167,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfWeapon)
         {
-            PlayerStats.instance.getMoney(-actualPriceOfWeapon);
+            PlayerStats.instance.GetMoney(-actualPriceOfWeapon);
             PlayerStats.instance.weaponLevel += 1;
             UpdatePricesOfStats();
             UpdateTeacherPanel();
