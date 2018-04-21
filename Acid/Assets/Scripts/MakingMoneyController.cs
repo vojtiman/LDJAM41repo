@@ -133,12 +133,4 @@ public class MakingMoneyController : MonoBehaviour {
             moneyMaker.SetActive(false);
         }
     }
-    public static float Round(float value, int digits)
-    {
-        float mult = Mathf.Pow(10.0f, (float)digits);
-        float zaokrouhleni = (Mathf.Round(value * mult) / mult) - 0.1f;
-        if (zaokrouhleni < 0)
-            zaokrouhleni = (Mathf.Round(value * mult) / mult);
-        return zaokrouhleni;
-    }
 }
