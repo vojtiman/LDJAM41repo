@@ -19,7 +19,7 @@ public class MakingMoneyController : MonoBehaviour {
 
     private void Update()
     {
-        textMoney.text = "Tolal money: " + playerStats.money;
+        textMoney.text = "MONEY: " + playerStats.money;
     }
 
 
