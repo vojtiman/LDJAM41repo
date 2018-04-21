@@ -69,7 +69,7 @@ public class MakingMoneyController : MonoBehaviour {
                 addingMoney += 1;
             }
             maximumMoney += 1;
-            playerStats.getMoney(-100);
+            playerStats.GetMoney(-100);
         }
 
     }
@@ -81,7 +81,7 @@ public class MakingMoneyController : MonoBehaviour {
             if (random == 5)
                 addingMoney += 4;
             maximumMoney += 10;
-            playerStats.getMoney(-1000);
+            playerStats.GetMoney(-1000);
         }
 
         
@@ -94,19 +94,19 @@ public class MakingMoneyController : MonoBehaviour {
             if(random == 2)
                 addingMoney += 10;
             maximumMoney += 100;
-            playerStats.getMoney(-10000);
+            playerStats.GetMoney(-10000);
         }
     }
     public void moneyCollect()
     {
         // tlačítko COLLECT sebere peníze
-        playerStats.getMoney(collectebleMoney);
+        playerStats.GetMoney(collectebleMoney);
         collectebleMoney = 0;
     }
     public void moneyForClick()
     {
         // Když hráč klikne na tlačítko přičtou se mu peníze
-        playerStats.getMoney(1);
+        playerStats.GetMoney(1);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -29,6 +29,8 @@ public class PlayerAtack : MonoBehaviour {
             return;
         if (hitInfo.transform.name == "Teacher")
             hitInfo.transform.GetComponent<Teacher>().OpenTeacherPanel();
+        if (hitInfo.transform.GetComponent<Monster>())
+            hitInfo.transform.gameObject.SendMessage("TakeDamage", PlayerStats.instance.Damage());
 
         print(hitInfo.transform.name);
     }

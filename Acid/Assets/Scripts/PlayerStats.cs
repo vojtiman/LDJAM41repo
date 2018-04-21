@@ -12,12 +12,14 @@ public class PlayerStats : MonoBehaviour {
     public int experience = 0;
 
     public int staminaToHealthMultiplier;
-    public int health;
+    public int strengthToDamageMultiplier;
+    public int luckToCritMultiplier;
+    public int health = 0;
 
     private void Start()
     {
         instance = this;
-        health = stamina * level * staminaToHealthMultiplier * (int)(strength * 0.25);
+        health = stamina * level * staminaToHealthMultiplier * Mathf.CeilToInt(strength * 0.25f);
     }
 
     public void TakeDamage(int amount)
@@ -38,8 +40,24 @@ public class PlayerStats : MonoBehaviour {
         return copperCoinsCount;
     }
 
-    public void getMoney(int plusMoney)
+    public void GetMoney(int plusMoney)
     {
         copperCoins += plusMoney;
+    }
+
+    public int Damage()
+    {
+        int Damage = strength * level * strengthToDamageMultiplier;
+        Damage = Mathf.CeilToInt(Random.Range(0.8f, 1.2f) * Damage);
+
+        int crit = Random.Range(0, 100);
+        if (Mathf.Clamp((luck * luckToCritMultiplier), 0, 50) > crit)
+        {
+            Damage = (int)(Random.Range(1.5f, 2.5f) * Damage);
+            print("Critical damage!! " + Damage);
+        }
+
+
+        return Damage;
     }
 }
