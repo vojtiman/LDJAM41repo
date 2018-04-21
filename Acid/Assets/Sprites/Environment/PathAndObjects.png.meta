@@ -46,6 +46,10 @@ TextureImporter:
     21300078: StoneGround-bottomleft
     21300080: StoneGround-bottomright
     21300082: StoneGround-center
+    21300084: StoneGround-Left
+    21300086: StoneGround-bottom
+    21300088: StoneGround-Right
+    21300090: StoneGround-Top
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -736,6 +740,62 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGround-Left
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGround-bottom
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 416
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGround-Right
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 440
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGround-Top
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 464
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
