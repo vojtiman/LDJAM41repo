@@ -15,6 +15,6 @@ public class PlayerStats : MonoBehaviour {
 
     public void getMoney()
     {
-        money += 0.5f;
+        money += 0.25f;
     }
 }
