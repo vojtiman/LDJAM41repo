@@ -50,6 +50,11 @@ TextureImporter:
     21300086: StoneGround-bottom
     21300088: StoneGround-Right
     21300090: StoneGround-Top
+    21300092: StoneGroundGrass-bottomright
+    21300094: StoneGroundGrass-topright
+    21300096: StoneGroundGrass-topleft
+    21300098: StoneGroundGrass-bottomleft
+    21300100: StoneGroundGrass-center
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -161,9 +166,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 464
-        width: 48
-        height: 48
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -692,10 +697,10 @@ TextureImporter:
       name: StoneGround-topright
       rect:
         serializedVersion: 2
-        x: 48
-        y: 464
-        width: 48
-        height: 48
+        x: 64
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -708,8 +713,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 416
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -720,10 +725,10 @@ TextureImporter:
       name: StoneGround-bottomright
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 416
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -734,8 +739,8 @@ TextureImporter:
       name: StoneGround-center
       rect:
         serializedVersion: 2
-        x: 64
-        y: 384
+        x: 32
+        y: 448
         width: 32
         height: 32
       alignment: 0
@@ -749,11 +754,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 440
-        width: 48
-        height: 48
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -762,12 +767,12 @@ TextureImporter:
       name: StoneGround-bottom
       rect:
         serializedVersion: 2
-        x: 24
+        x: 32
         y: 416
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -776,12 +781,12 @@ TextureImporter:
       name: StoneGround-Right
       rect:
         serializedVersion: 2
-        x: 48
-        y: 440
-        width: 48
-        height: 48
+        x: 64
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -790,12 +795,82 @@ TextureImporter:
       name: StoneGround-Top
       rect:
         serializedVersion: 2
-        x: 24
-        y: 464
-        width: 48
-        height: 48
+        x: 32
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGroundGrass-bottomright
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGroundGrass-topright
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGroundGrass-topleft
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGroundGrass-bottomleft
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StoneGroundGrass-center
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

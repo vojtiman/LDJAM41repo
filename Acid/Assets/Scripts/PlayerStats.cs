@@ -5,10 +5,16 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour {
 
     public float atackPower;
-    public float healt;
+    public float health;
+    public float money;
 
     public void RemoveHealt(float howMuchHealtRemove)
     {
-        healt -= howMuchHealtRemove;
+        health -= howMuchHealtRemove;
+    }
+
+    public void getMoney()
+    {
+        money += 0.5f;
     }
 }
