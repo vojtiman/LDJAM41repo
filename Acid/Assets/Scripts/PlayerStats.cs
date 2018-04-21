@@ -13,8 +13,8 @@ public class PlayerStats : MonoBehaviour {
         health -= howMuchHealtRemove;
     }
 
-    public void getMoney()
+    public void getMoney(float plusMoney)
     {
-        money += 0.25f;
+        money += plusMoney;
     }
 }
