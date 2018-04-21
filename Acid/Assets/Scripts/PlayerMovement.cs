@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public float speed;
@@ -37,9 +35,11 @@ public class PlayerMovement : MonoBehaviour {
         }
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, dir, 32f);
 
-        print(dir);
-        if (!hitInfo.transform.CompareTag("Player") && !hitInfo.collider.isTrigger)
-            return;
+        if (hitInfo.transform != null)
+        {
+            if (!hitInfo.collider.isTrigger)
+                return;
+        }
         transform.position += (Vector3)dir;
     }
 }

@@ -27,6 +27,8 @@ public class PlayerAtack : MonoBehaviour {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, dir, 32f);
         if (hitInfo.transform == null)
             return;
+        if (hitInfo.transform.name == "Teacher")
+            hitInfo.transform.GetComponent<Teacher>().OpenTeacherPanel();
 
         print(hitInfo.transform.name);
     }
