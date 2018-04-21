@@ -6,15 +6,28 @@ public class PlayerStats : MonoBehaviour {
 
     public float atackPower;
     public float health;
-    public float money;
+    public int copperCoins;
+    
 
     public void RemoveHealt(float howMuchHealtRemove)
     {
         health -= howMuchHealtRemove;
     }
 
-    public void getMoney(float plusMoney)
+
+    public int GetSilverCoins()
     {
-        money += plusMoney;
+        int silverCoinsCount = copperCoins / 100;
+
+        return silverCoinsCount;
+    }
+    public int GetCopperCoins()
+    {
+        int copperCoinsCount = copperCoins % 100;
+        return copperCoinsCount;
+    }
+    public void getMoney(int plusMoney)
+    {
+        copperCoins += plusMoney;
     }
 }

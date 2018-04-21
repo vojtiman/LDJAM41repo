@@ -24,8 +24,8 @@ public class MakingMoneyController : MonoBehaviour {
     int upgradeCost;
     int upgradeCount;
     private PlayerStats playerStats;
-    private float collectebleMoney;
-    private float addingMoney = 10;
+    private int collectebleMoney;
+    private int addingMoney = 10;
     void Start()
     {
         // připojení na hráčův script stats
@@ -39,7 +39,7 @@ public class MakingMoneyController : MonoBehaviour {
     {
         //úprava textu
         collectText.text = collectebleMoney + "/" + maximumMoney + "$";
-        textMoney.text = "MONEY: " + Round(playerStats.money,2) + "$";
+        textMoney.text = "MONEY: " + playerStats.GetSilverCoins().ToString()+ "silverů"+ playerStats.GetCopperCoins().ToString() + "copperů";
         if(unlock == true)
         {
             // jestli je odmčeno těžení dřeva přidávají se peníze
@@ -67,7 +67,7 @@ public class MakingMoneyController : MonoBehaviour {
     public void upgradeWood1()
     {
         // upgrade tlačítka
-        if(unlock == true && playerStats.money >= upgradeCost && upgradeCount == 1)
+        if(unlock == true && playerStats.copperCoins >= upgradeCost && upgradeCount == 1)
         {
             playerStats.getMoney(-upgradeCost);
             upgradeCost += 100;
@@ -81,7 +81,7 @@ public class MakingMoneyController : MonoBehaviour {
     }
     public void upgradeWood2()
     {
-        if (unlock == true && playerStats.money >= upgradeCost && upgradeCount == 2)
+        if (unlock == true && playerStats.copperCoins >= upgradeCost && upgradeCount == 2)
         {
             playerStats.getMoney(-upgradeCost);
             upgrade2Button.image.color = Color.green;
@@ -92,7 +92,7 @@ public class MakingMoneyController : MonoBehaviour {
     public void UnLock()
     {
         // odemkte těžení dřeva
-        if(playerStats.money >= 5)
+        if(playerStats.copperCoins >= 5)
         {
             
             unlock = true;
@@ -112,7 +112,7 @@ public class MakingMoneyController : MonoBehaviour {
     public void moneyForClick()
     {
         // Když hráč klikne na tlačítko přičtou se mu peníze
-        playerStats.getMoney(.1f);
+        playerStats.getMoney(1);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
