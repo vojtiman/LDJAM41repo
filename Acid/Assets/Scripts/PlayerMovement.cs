@@ -15,7 +15,17 @@ public class PlayerMovement : MonoBehaviour {
 
     void Move()
     {
-        Vector2 dir = new Vector2(0, 0);
+        Vector2 moveVector = new Vector2(0, 0);
+
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+
+        moveVector.x = moveX * 150;
+        moveVector.y = moveY * 150;
+
+        GetComponent<Rigidbody2D>().velocity = moveVector;
+
+        /*Vector2 dir = new Vector2(0, 0);
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -40,6 +50,6 @@ public class PlayerMovement : MonoBehaviour {
             if (!hitInfo.collider.isTrigger)
                 return;
         }
-        transform.position += (Vector3)dir;
+        transform.position += (Vector3)dir;*/
     }
 }

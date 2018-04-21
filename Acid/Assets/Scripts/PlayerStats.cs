@@ -3,8 +3,8 @@
 public class PlayerStats : MonoBehaviour {
     public static PlayerStats instance;
     public int level = 1;
-    public int strength = 5;
-    public int stamina = 3;
+    public int strength = 1;
+    public int stamina = 1;
     public int luck = 1;
     public int armorLevel = 1;
     public int weaponLevel = 1;
