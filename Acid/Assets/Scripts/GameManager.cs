@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            ChangeScene("Level02");
+        }
 		if(Input.GetKeyDown(KeyCode.Keypad1))
         {
             ChangeScene("Level01");
@@ -31,7 +35,6 @@ public class GameManager : MonoBehaviour {
     public void ChangeScene(string sceneName)
     {
         gameOverScreen.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("Player");
         SceneManager.LoadScene(sceneName);
     }
 
@@ -62,6 +65,11 @@ public class GameManager : MonoBehaviour {
                 player = Instantiate(playerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
                 player.GetComponent<PlayerStats>().SetInstance();
             }
+        }
+        else
+        {
+            if (!player.activeSelf)
+                player.SetActive(true);
         }
     }
 
