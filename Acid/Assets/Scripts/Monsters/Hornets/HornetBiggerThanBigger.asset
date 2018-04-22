@@ -18,12 +18,13 @@ MonoBehaviour:
   maxDamage: 145
   attackSpeed: 7
   speed: 150
-  projectile: {fileID: 0}
+  projectiles: []
   attackDelay: 0
+  projectileSpeed: 0
   delayedAttacks: 0
   ranged: 0
   coinsReward: 350
-  expReward: 0
+  expReward: 400
   spawnPortalOnDeath: 0
   multiObjectEnemy: 0
   bossObject: 0

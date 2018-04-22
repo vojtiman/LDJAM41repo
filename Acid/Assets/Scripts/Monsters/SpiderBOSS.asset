@@ -12,19 +12,23 @@ MonoBehaviour:
   m_Name: SpiderBOSS
   m_EditorClassIdentifier: 
   monsterName: SpiderBOSS
-  health: 3000
+  health: 3500
   rangeOrMaxDistance: 500
   minDamage: 200
   maxDamage: 400
   attackSpeed: 8
   speed: 150
-  projectiles: []
-  attackDelay: 0
+  projectiles:
+  - {fileID: 1984860949393292, guid: 95dc3cba9ee2de84b89077bd4a66029f, type: 2}
+  - {fileID: 1494443372206188, guid: af0f792817b82d646a4057ae9d34af68, type: 2}
+  - {fileID: 1214153457882032, guid: 1a1885d9568fe6049b6691857f5fd21b, type: 2}
+  - {fileID: 1067426959003664, guid: 52ca54f10e5d552499823e92f9d40171, type: 2}
+  attackDelay: 0.1
   projectileSpeed: 650
   delayedAttacks: 0
   ranged: 1
-  coinsReward: 0
-  expReward: 0
+  coinsReward: 1500
+  expReward: 2000
   spawnPortalOnDeath: 0
   multiObjectEnemy: 0
   bossObject: 0
