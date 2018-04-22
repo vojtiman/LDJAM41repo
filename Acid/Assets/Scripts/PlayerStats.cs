@@ -77,8 +77,11 @@ public class PlayerStats : MonoBehaviour {
     {
         health -= amount;
         if (health <= 0)
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+        {
+            GameManager.instance.GameOver();
+            Destroy(gameObject);
+        }
+
         inCombat = true;
         combatTime = 10;
     }

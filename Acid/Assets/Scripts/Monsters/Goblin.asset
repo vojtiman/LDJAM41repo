@@ -13,10 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Goblin
   health: 15
-  range: 30
+  rangeOrMaxDistance: 25
   minDamage: 6
   maxDamage: 9
   attackSpeed: 8
   speed: 100
   ranged: 0
+  spawnPortalOnDeath: 0
   projectile: {fileID: 0}

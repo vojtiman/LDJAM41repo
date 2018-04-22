@@ -282,12 +282,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efce94927c07ac34aa27f6d7aaada895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 11400000, guid: 9c08e6ea142196d46935ae2843fba0e9, type: 2}
+  monsterPrefab: {fileID: 11400000, guid: bb7ef6003f802af47953debf04efe705, type: 2}
   attackTimer: 0
   nextAttack: 0
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 2824
+  portalPrefab: {fileID: 0}
 --- !u!114 &114898333648552358
 MonoBehaviour:
   m_ObjectHideFlags: 1

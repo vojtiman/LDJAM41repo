@@ -13,10 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Slime
   health: 22
-  range: 15
+  rangeOrMaxDistance: 20
   minDamage: 1
   maxDamage: 3
   attackSpeed: 2
   speed: 32
   ranged: 0
+  spawnPortalOnDeath: 0
   projectile: {fileID: 0}

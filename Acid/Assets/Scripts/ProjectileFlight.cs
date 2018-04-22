@@ -5,9 +5,13 @@ public class ProjectileFlight : MonoBehaviour {
     public float speed = 30;
     public GameObject target;
     public Vector3 dir;
+    public float maxDistance;
+
+    private Vector3 start;
 
 	// Use this for initialization
 	void Start () {
+        start = transform.position;
         if (target != null)
         {
             Vector3 diff = target.transform.position - transform.position;
@@ -48,6 +52,14 @@ public class ProjectileFlight : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+        CheckDistance();
 	}
+
+    void CheckDistance()
+    {
+        if(Vector3.Distance(start, transform.position) >= maxDistance)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

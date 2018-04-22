@@ -3,6 +3,7 @@
 public class PlayerAtack : MonoBehaviour {
     public float attackTimer;
     public GameObject projectilePrefab;
+    public float maxDistance;
     private float nextAttack;
     private bool ranged = false;
 
@@ -53,6 +54,7 @@ public class PlayerAtack : MonoBehaviour {
             projectile.GetComponent<ProjectileFlight>().damage = PlayerStats.instance.Damage(dmgMultiplier);
             projectile.GetComponent<ProjectileFlight>().dir = dir;
             projectile.layer = 11;
+            projectile.GetComponent<ProjectileFlight>().maxDistance = maxDistance;
         }
 
         if (!ranged)
