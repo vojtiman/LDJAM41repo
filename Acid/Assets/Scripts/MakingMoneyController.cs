@@ -5,7 +5,6 @@ using UnityEngine;
 public class MakingMoneyController : MonoBehaviour {
 
     public GameObject moneyMaker;
-    private GameObject player;
     public Text textSilverCoins;
     public Text textCopperCoins;
     public Text collectText;
@@ -29,7 +28,6 @@ public class MakingMoneyController : MonoBehaviour {
         if(FindObjectOfType<CollisionControllerMoneySpot>())
             MoneySpotController = FindObjectOfType<CollisionControllerMoneySpot>();
         DontDestroyOnLoad(gameObject);
-        player = GameObject.FindGameObjectWithTag("Player");
         // připojení na hráčův script stats
         if(PlayerStats.instance != null)
             playerStats = PlayerStats.instance;

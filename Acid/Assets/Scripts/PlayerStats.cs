@@ -109,7 +109,7 @@ public class PlayerStats : MonoBehaviour {
     public int Damage(float dmgMultiplier)
     {
         int Damage = strength * level * strengthToDamageMultiplier;
-        Damage = Mathf.CeilToInt(Random.Range(0.8f, 1.2f) * Damage * dmgMultiplier);
+        Damage = Mathf.CeilToInt(Random.Range(0.8f, 1.2f) * Damage * dmgMultiplier * weaponLevel);
 
         int crit = Random.Range(0, 100);
         if (Mathf.Clamp((luck * luckToCritMultiplier), 0, 50) > crit)
