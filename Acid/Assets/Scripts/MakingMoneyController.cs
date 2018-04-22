@@ -11,21 +11,22 @@ public class MakingMoneyController : MonoBehaviour {
     public Text textSilverCoins;
     public Text textCopperCoins;
     public Text collectText;
-    public int maximumMoney = 20;
+    public int maximumMoney;
     public Button unlockButton;
     public GameObject upgrade1;
     public GameObject upgrade2;
     public Button upgrade1Button;
     public Button upgrade2Button;
 
-    public float timeTillNext = 2;
-    public float timer = 2;
+    public float timeTillNext = 1;
+    public float timer = 1;
 
     private PlayerStats playerStats;
     private int collectebleMoney;
     private int addingMoney = 1;
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         // připojení na hráčův script stats
         playerStats = player.GetComponent<PlayerStats>();
     }

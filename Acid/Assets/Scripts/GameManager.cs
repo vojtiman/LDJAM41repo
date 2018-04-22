@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour {
         {
             ChangeScene("Level01");
         }
+        if(Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            ChangeScene("Main");
+        }
 	}
 
     public void ChangeScene(string sceneName)
