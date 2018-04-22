@@ -88,7 +88,7 @@ public class MakingMoneyController : MonoBehaviour {
         if (playerStats.GetSilverCoins()>= 1)
         {
 
-            int random = Random.Range(1, 10);
+            int random = Random.Range(1, 6);
             if(random == 5)
             {
                 addingMoney += 1;
@@ -105,7 +105,7 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins() >= 10)
         {
-            int random = Random.Range(1, 8);
+            int random = Random.Range(1, 4);
             if (random == 5)
                 addingMoney += 4;
             maximumMoney += 10;
