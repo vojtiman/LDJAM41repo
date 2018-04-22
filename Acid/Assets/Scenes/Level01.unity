@@ -155,16 +155,16 @@ Prefab:
     - target: {fileID: 224784866736775282, guid: 72185a23c76325444bd3bf6919e7f731,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224784866736775282, guid: 72185a23c76325444bd3bf6919e7f731,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1944492147834234, guid: 72185a23c76325444bd3bf6919e7f731, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72185a23c76325444bd3bf6919e7f731, type: 2}
@@ -421,11 +421,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4797107564411682, guid: 231bd431e33c58641a3cf698e21d0625, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 695.5
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4797107564411682, guid: 231bd431e33c58641a3cf698e21d0625, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -157.2
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 4797107564411682, guid: 231bd431e33c58641a3cf698e21d0625, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2029,15 +2029,6 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 21, y: -6, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 24, y: -6, z: 0}
     second:
       m_TileIndex: 0
@@ -2138,15 +2129,6 @@ Tilemap:
       m_TileFlags: 1
       m_ColliderType: 1
   - first: {x: 20, y: -5, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: 21, y: -5, z: 0}
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 0
@@ -3165,13 +3147,13 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 204
+  - m_RefCount: 202
     m_Data: {fileID: 11400000, guid: 7e6fb903871af1743aa376d90e57c3ab, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 204
+  - m_RefCount: 202
     m_Data: {fileID: 21300066, guid: 1e99202c60a7a0c49ad6c46826907d4c, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 204
+  - m_RefCount: 202
     m_Data:
       e00: 1
       e01: 0
@@ -3190,7 +3172,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 204
+  - m_RefCount: 202
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -122,6 +122,7 @@ public class Monster : MonoBehaviour {
         }
         SpawnPortalOnDeath();
         FindObjectOfType<AudioManager>().Play("MonsterDeath");
+        PlayerStats.instance.GetMoney(monster.coinsReward);
         Destroy(gameObject); 
     }
 
@@ -164,7 +165,8 @@ public class Monster : MonoBehaviour {
         {
             Vector3 pos = transform.position;
 
-            GameObject projectile = Instantiate(monster.projectile, pos , Quaternion.Euler(Vector3.zero));
+            int x = Random.Range(0, monster.projectiles.Length);
+            GameObject projectile = Instantiate(monster.projectiles[x], pos , Quaternion.Euler(Vector3.zero));
 
             GameObject[] projectiles = new GameObject[projectile.transform.childCount];
             projectile.layer = 8;
@@ -180,6 +182,11 @@ public class Monster : MonoBehaviour {
                 flightSettings[i].damage = Random.Range(monster.minDamage, monster.maxDamage);
                 flightSettings[i].target = player;
                 flightSettings[i].maxDistance = monster.rangeOrMaxDistance;
+                flightSettings[i].speed = monster.projectileSpeed;
+                if(monster.delayedAttacks)
+                {
+                    flightSettings[i].delay = monster.attackDelay * Mathf.Clamp(i, 1, flightSettings.Length);
+                }
             }
 
             nextAttack = attackTimer;

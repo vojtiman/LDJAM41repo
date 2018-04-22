@@ -13,16 +13,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Wyvern
   health: 0
-  rangeOrMaxDistance: 200
+  rangeOrMaxDistance: 350
   minDamage: 50
   maxDamage: 125
   attackSpeed: 3
   speed: 32
-  projectile: {fileID: 1067426959003664, guid: 52ca54f10e5d552499823e92f9d40171, type: 2}
+  projectiles:
+  - {fileID: 1214153457882032, guid: 1a1885d9568fe6049b6691857f5fd21b, type: 2}
+  - {fileID: 1494443372206188, guid: af0f792817b82d646a4057ae9d34af68, type: 2}
+  - {fileID: 1984860949393292, guid: 95dc3cba9ee2de84b89077bd4a66029f, type: 2}
+  - {fileID: 1067426959003664, guid: 52ca54f10e5d552499823e92f9d40171, type: 2}
   attackDelay: 0.2
+  projectileSpeed: 600
   delayedAttacks: 1
   ranged: 1
-  coinsReward: 0
+  coinsReward: 1000
   expReward: 0
   spawnPortalOnDeath: 1
   multiObjectEnemy: 1
+  bossObject: 0

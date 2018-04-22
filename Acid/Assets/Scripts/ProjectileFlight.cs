@@ -6,19 +6,20 @@ public class ProjectileFlight : MonoBehaviour {
     public GameObject target;
     public Vector3 dir;
     public float maxDistance;
+    public float delay;
 
     private Vector3 start;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         start = transform.position;
         if (target != null)
         {
-            Vector3 diff = target.transform.position - transform.position;
-            diff.Normalize();
-            float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
-            GetComponent<Rigidbody2D>().velocity = (target.transform.position - transform.position).normalized * speed;
+            RotateToPlayer();
+            if(delay <= 0)
+            {
+                SendProjectile();
+            }
         }
         else
         {
@@ -38,6 +39,19 @@ public class ProjectileFlight : MonoBehaviour {
         }
     }
 
+    void RotateToPlayer()
+    {
+        Vector3 diff = target.transform.position - transform.position;
+        diff.Normalize();
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+    }
+
+    void SendProjectile()
+    {
+        GetComponent<Rigidbody2D>().velocity = (target.transform.position - transform.position).normalized * speed;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.transform.GetComponent<Monster>() || collision.transform.GetComponent<PlayerStats>())
@@ -53,6 +67,12 @@ public class ProjectileFlight : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         CheckDistance();
+        if (GetComponent<Rigidbody2D>().velocity == Vector2.zero && delay > 0)
+            RotateToPlayer();
+        if (GetComponent<Rigidbody2D>().velocity == Vector2.zero && delay <= 0)
+            SendProjectile();
+
+        delay -= Time.deltaTime;
 	}
 
     void CheckDistance()
