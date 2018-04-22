@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4220110701924340}
   - component: {fileID: 114450945996182820}
+  - component: {fileID: 114960344988768514}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -487,6 +488,32 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114960344988768514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501293189118904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732e7377d4419a34f8391ede3bfe9f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMaker: {fileID: 0}
+  textSilverCoins: {fileID: 0}
+  textCopperCoins: {fileID: 0}
+  collectText: {fileID: 0}
+  maximumMoney: 100
+  unlockButton: {fileID: 0}
+  upgrade1: {fileID: 0}
+  upgrade2: {fileID: 0}
+  upgrade1Button: {fileID: 0}
+  upgrade2Button: {fileID: 0}
+  timeTillNext: 1
+  timer: 1
+  collectebleMoney: 0
+  addingMoney: 1
+  MakingMoneySpot: {fileID: 0}
 --- !u!114 &114988059889937972
 MonoBehaviour:
   m_ObjectHideFlags: 1
