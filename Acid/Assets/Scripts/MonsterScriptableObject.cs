@@ -10,5 +10,6 @@ public class MonsterScriptableObject : ScriptableObject {
     public int maxDamage = 0;
     public int attackSpeed = 2; 
     public int speed = 32;
-
+    public bool ranged = false;
+    public GameObject projectile;
 }

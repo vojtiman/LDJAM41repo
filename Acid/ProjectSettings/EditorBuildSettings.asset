@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Vojta.unity
+    guid: 56ecdf10ac1caed4290b777666f021cd
+  - enabled: 1
+    path: Assets/Scenes/Level01.unity
+    guid: aa6ca850fe4eb19468b59e932cd4fb8b

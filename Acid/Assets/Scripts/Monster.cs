@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using UnityEngine.UI;
+using UnityEngine;
 
 public class Monster : MonoBehaviour {
     public MonsterScriptableObject monsterPrefab;
+    public float attackTimer;
+    public float nextAttack;
+    public LayerMask ignoreLayer = 8;
+
     private MonsterScriptableObject monster;
-    private float attackTimer;
-    private float nextAttack;
+    private Slider healthBar;
     RaycastHit2D hitInfo;
     GameObject player;
 
@@ -14,27 +18,45 @@ public class Monster : MonoBehaviour {
         monster = Object.Instantiate(monsterPrefab)as MonsterScriptableObject;
         attackTimer = 10/monster.attackSpeed;
         nextAttack = attackTimer;
-	}
+
+        healthBar = GetComponentInChildren<Slider>();
+        healthBar.maxValue = monsterPrefab.health;
+        healthBar.value = monster.health;
+        healthBar.gameObject.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if(SeesThePlayer())
+        nextAttack -= Time.deltaTime;
+        if (SeesThePlayer())
         {
-            if(!IsCloseEnough())
+            if(monster.ranged)
             {
-                MoveTowardsThePlayer();
+                Stop();
+                ShootAtThePlayer();
+                print("Y");
             }
             else
             {
-                nextAttack -= Time.deltaTime;
-                AttackThePlayer();
+                if (!IsCloseEnough())
+                {
+                    MoveTowardsThePlayer();
+                }
+                else
+                {
+                    Stop();
+                    AttackThePlayer();
+                }
             }
         }
+        else Stop();
+
+        ShowHP();
 	}
 
     bool SeesThePlayer()
     {
-        hitInfo = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
+        hitInfo = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 500 , ~ignoreLayer);
         if(hitInfo.transform != null)
         {
             return hitInfo.transform.CompareTag("Player");
@@ -48,10 +70,15 @@ public class Monster : MonoBehaviour {
         return (hitInfo.distance <= monster.range);
     }
 
+    void Stop()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    }
+
     void MoveTowardsThePlayer()
     {
         Vector3 moveVector = player.transform.position - transform.position;
-        transform.position += moveVector.normalized * monster.speed * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = moveVector.normalized * monster.speed;
     }
 
     void AttackThePlayer()
@@ -68,5 +95,29 @@ public class Monster : MonoBehaviour {
         monster.health -= amount;
         if (monster.health <= 0)
             Destroy(gameObject);
+    }
+
+    void ShowHP()
+    {
+        healthBar.value = monster.health;
+        if(monster.health != monsterPrefab.health)
+        {
+            healthBar.gameObject.SetActive(true);
+        }
+    }
+
+    void ShootAtThePlayer()
+    {
+        if(nextAttack <= 0)
+        {
+            print("ATACK");
+            Vector3 pos = transform.position + (player.transform.position - transform.position).normalized * (GetComponent<Collider2D>().bounds.extents.x * 1.9f);
+
+            GameObject projectile = Instantiate(monster.projectile, pos , Quaternion.Euler(Vector3.zero));
+            projectile.GetComponent<ProjectileFlight>().damage = Random.Range(monster.minDamage, monster.maxDamage);
+            projectile.GetComponent<ProjectileFlight>().target = player;
+
+            nextAttack = attackTimer;
+        }
     }
 }

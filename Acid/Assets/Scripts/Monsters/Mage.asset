@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa7199cf34faa7a47b200d0aafd8d396, type: 3}
-  m_Name: Slime
+  m_Name: Mage
   m_EditorClassIdentifier: 
-  monsterName: Slime
-  health: 22
-  range: 15
-  minDamage: 1
-  maxDamage: 3
-  attackSpeed: 2
-  speed: 32
-  ranged: 0
-  projectile: {fileID: 0}
+  monsterName: Mage
+  health: 100
+  range: 70
+  minDamage: 5
+  maxDamage: 15
+  attackSpeed: 4
+  speed: 64
+  ranged: 1
+  projectile: {fileID: 1110526723474606, guid: 2acc04d75a624ff40b4952a5ad7e8cef, type: 2}
