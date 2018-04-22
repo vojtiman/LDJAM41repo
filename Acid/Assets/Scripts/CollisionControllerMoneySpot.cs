@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollisionControllerMoneySpot : MonoBehaviour
 {
     private bool StandOnTrigger;
-    private GameObject player;
     private void Start()
     {
         StandOnTrigger = false;
-        player = GameObject.FindGameObjectWithTag("Player");
+        GameManager.instance.gameObject.GetComponent<MakingMoneyController>().MakingMoneySpot = gameObject;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

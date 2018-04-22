@@ -9,17 +9,11 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (instance != null)
-            Destroy(gameObject);
         instance = this;
+        SceneManager.sceneLoaded += OnSceneChanged;
         Object.DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
-
-        if(player == null)
-        {
-            GameObject playerSpawner = GameObject.FindGameObjectWithTag("PlayerSpawn");
-            player = Instantiate(playerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
-        }
+        SpawnPlayerIfNeeded();
 	}
 	
 	// Update is called once per frame
@@ -30,7 +24,7 @@ public class GameManager : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Keypad0))
         {
-            ChangeScene("Vojta");
+            ChangeScene("Village");
         }
 	}
 
@@ -50,4 +44,24 @@ public class GameManager : MonoBehaviour {
     {
         gameOverScreen.SetActive(true);
     }
+
+    void SpawnPlayerIfNeeded()
+    {
+        if (player == null)
+        {
+            if (GameObject.FindGameObjectWithTag("PlayerSpawn") != null)
+            {
+                GameObject playerSpawner = GameObject.FindGameObjectWithTag("PlayerSpawn");
+                player = Instantiate(playerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
+                player.GetComponent<PlayerStats>().SetInstance();
+            }
+        }
+    }
+
+    private void OnSceneChanged(Scene scene, LoadSceneMode mode)
+    {
+        SpawnPlayerIfNeeded();
+    }
+
+    
 }

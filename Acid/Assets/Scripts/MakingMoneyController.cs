@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 using UnityEngine;
 
 public class MakingMoneyController : MonoBehaviour {
@@ -28,33 +26,44 @@ public class MakingMoneyController : MonoBehaviour {
     private CollisionControllerMoneySpot MoneySpotController;
     void Start()
     {
-        MoneySpotController = MakingMoneySpot.GetComponent<CollisionControllerMoneySpot>();
+        if(FindObjectOfType<CollisionControllerMoneySpot>())
+            MoneySpotController = FindObjectOfType<CollisionControllerMoneySpot>();
         DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
         // připojení na hráčův script stats
-        playerStats = player.GetComponent<PlayerStats>();
-
+        if(PlayerStats.instance != null)
+            playerStats = PlayerStats.instance;
     }
 
     private void Update()
     {
-        if(MoneySpotController.StandingOnTrigger() == true)
+        if (playerStats == null && PlayerStats.instance != null)
+            playerStats = PlayerStats.instance;
+        if (FindObjectOfType<CollisionControllerMoneySpot>() && MoneySpotController == null)
+            MoneySpotController = FindObjectOfType<CollisionControllerMoneySpot>();
+
+        if (MoneySpotController != null)
         {
-            moneyMaker.SetActive(true);
+            if (MoneySpotController.StandingOnTrigger() == true)
+            {
+                moneyMaker.SetActive(true);
+            }
+            else
+            {
+                moneyMaker.SetActive(false);
+            }
+            //úprava textu
+            collectText.text = collectebleMoney + "/" + maximumMoney;
+            textSilverCoins.text = playerStats.GetSilverCoins().ToString();
+            textCopperCoins.text = playerStats.GetCopperCoins().ToString();
         }
-        else
-        {
-            moneyMaker.SetActive(false);
-        }
-        //úprava textu
-        collectText.text = collectebleMoney + "/" + maximumMoney;
-        textSilverCoins.text = playerStats.GetSilverCoins().ToString();
-        textCopperCoins.text = playerStats.GetCopperCoins().ToString();
         makingMoneyPerMinute();
     }
 
     public void makingMoneyPerMinute()
     {
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+            return;
         // přidává
         timeTillNext -= Time.deltaTime;
         if (timeTillNext <=0)
@@ -74,7 +83,9 @@ public class MakingMoneyController : MonoBehaviour {
 
     public void UpgradeWood()
     {
-        if(playerStats.GetSilverCoins()>= 1)
+        if (playerStats == null)
+            return;
+        if (playerStats.GetSilverCoins()>= 1)
         {
             int random = Random.Range(1, 10);
             if(random == 5)
@@ -88,7 +99,9 @@ public class MakingMoneyController : MonoBehaviour {
     }
     public void upgradeWood1()
     {
-        if(playerStats.GetSilverCoins() >= 10)
+        if (playerStats == null)
+            return;
+        if (playerStats.GetSilverCoins() >= 10)
         {
             int random = Random.Range(1, 8);
             if (random == 5)
@@ -101,7 +114,9 @@ public class MakingMoneyController : MonoBehaviour {
     }
     public void UpgradeWood2()
     {
-        if(playerStats.GetSilverCoins()>=100)
+        if (playerStats == null)
+            return;
+        if (playerStats.GetSilverCoins()>=100)
         {
             int random = Random.Range(1, 3);
             if(random == 2)
@@ -113,12 +128,16 @@ public class MakingMoneyController : MonoBehaviour {
     public void moneyCollect()
     {
         // tlačítko COLLECT sebere peníze
+        if (playerStats == null)
+            return;
         playerStats.GetMoney(collectebleMoney);
         collectebleMoney = 0;
     }
     public void moneyForClick()
     {
         // Když hráč klikne na tlačítko přičtou se mu peníze
+        if (playerStats == null)
+            return;
         playerStats.GetMoney(1);
     }
 
