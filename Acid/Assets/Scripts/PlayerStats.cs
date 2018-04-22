@@ -128,4 +128,9 @@ public class PlayerStats : MonoBehaviour {
         }
         else healthBar.gameObject.SetActive(false);
     }
+
+    public void SetInstance()
+    {
+        instance = this;
+    }
 }
