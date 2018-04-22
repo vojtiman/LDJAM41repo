@@ -51,6 +51,7 @@ public class PlayerAtack : MonoBehaviour {
         {
             Vector3 pos = transform.position;
             GameObject projectile = Instantiate(projectilePrefab, pos, Quaternion.Euler(Vector3.zero));
+            FindObjectOfType<AudioManager>().Play("RangedAttack");
             projectile.GetComponent<ProjectileFlight>().damage = PlayerStats.instance.Damage(dmgMultiplier);
             projectile.GetComponent<ProjectileFlight>().dir = dir;
             projectile.layer = 11;
@@ -65,7 +66,10 @@ public class PlayerAtack : MonoBehaviour {
             if (hitInfo.transform.name == "Teacher")
                 hitInfo.transform.GetComponent<Teacher>().OpenTeacherPanel();
             if (hitInfo.transform.GetComponent<Monster>())
+            {
+                FindObjectOfType<AudioManager>().Play("PunchAttack");
                 hitInfo.transform.gameObject.SendMessage("TakeDamage", PlayerStats.instance.Damage(dmgMultiplier));
+            }
         }
 
         nextAttack = attackTimer;

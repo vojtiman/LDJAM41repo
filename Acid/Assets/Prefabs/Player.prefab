@@ -189,11 +189,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   experience: 0
-  strength: 6
-  stamina: 10
-  luck: 7
-  armorLevel: 11
-  weaponLevel: 7
+  strength: 1
+  stamina: 1
+  luck: 1
+  armorLevel: 1
+  weaponLevel: 1
   staminaToHealthMultiplier: 9
   strengthToDamageMultiplier: 4
   luckToCritMultiplier: 2

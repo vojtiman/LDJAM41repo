@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver()
     {
+        FindObjectOfType<AudioManager>().Play("PlayerDeath");
         gameOverScreen.SetActive(true);
     }
 

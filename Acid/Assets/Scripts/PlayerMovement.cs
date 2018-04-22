@@ -12,6 +12,20 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         Move();
     }
+    private void FixedUpdate()
+    {
+        float timer = 0.15f;
+        float timeTillNext = 0.15f;
+        timeTillNext -= 1 * Time.deltaTime;
+        if(timeTillNext == 0)
+        {
+            timeTillNext = timer;
+        }
+        if ((GetComponent<Rigidbody2D>().velocity.x != 0 || GetComponent<Rigidbody2D>().velocity.y != 0) && timeTillNext ==0)
+        {
+            FindObjectOfType<AudioManager>().Play("Walk");
+        }
+    }
 
     void Move()
     {

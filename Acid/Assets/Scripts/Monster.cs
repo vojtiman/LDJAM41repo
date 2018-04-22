@@ -98,6 +98,7 @@ public class Monster : MonoBehaviour {
         if (monster.health <= 0)
         {
             SpawnPortalOnDeath();
+            FindObjectOfType<AudioManager>().Play("MonsterDeath");
             Destroy(gameObject);
         }
     }

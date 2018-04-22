@@ -121,6 +121,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfStrength)
         {
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             PlayerStats.instance.GetMoney(-actualPriceOfStrength);
             PlayerStats.instance.strength += 1;
             UpdatePricesOfStats();
@@ -133,6 +134,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfStamina)
         {
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             PlayerStats.instance.GetMoney(-actualPriceOfStamina);
             PlayerStats.instance.stamina += 1;
             UpdatePricesOfStats();
@@ -145,6 +147,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfLuck)
         {
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             PlayerStats.instance.GetMoney(-actualPriceOfLuck);
             PlayerStats.instance.luck += 1;
             UpdatePricesOfStats();
@@ -157,6 +160,8 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfArmor)
         {
+            FindObjectOfType<AudioManager>().Play("Upgrade");
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             PlayerStats.instance.GetMoney(-actualPriceOfArmor);
             PlayerStats.instance.armorLevel += 1;
             UpdatePricesOfStats();
@@ -169,6 +174,7 @@ public class Teacher : MonoBehaviour {
     {
         if (PlayerStats.instance.copperCoins >= actualPriceOfWeapon)
         {
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             PlayerStats.instance.GetMoney(-actualPriceOfWeapon);
             PlayerStats.instance.weaponLevel += 1;
             UpdatePricesOfStats();

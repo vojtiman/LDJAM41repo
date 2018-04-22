@@ -87,12 +87,14 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins()>= 1)
         {
+
             int random = Random.Range(1, 10);
             if(random == 5)
             {
                 addingMoney += 1;
             }
             maximumMoney += 1;
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-100);
         }
 
@@ -107,6 +109,7 @@ public class MakingMoneyController : MonoBehaviour {
             if (random == 5)
                 addingMoney += 4;
             maximumMoney += 10;
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-1000);
         }
 
@@ -122,6 +125,7 @@ public class MakingMoneyController : MonoBehaviour {
             if(random == 2)
                 addingMoney += 10;
             maximumMoney += 100;
+            FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-10000);
         }
     }
@@ -130,6 +134,8 @@ public class MakingMoneyController : MonoBehaviour {
         // tlačítko COLLECT sebere peníze
         if (playerStats == null)
             return;
+        if(collectebleMoney >= 1)
+            FindObjectOfType<AudioManager>().Play("MoneyCollect");
         playerStats.GetMoney(collectebleMoney);
         collectebleMoney = 0;
     }
@@ -138,6 +144,7 @@ public class MakingMoneyController : MonoBehaviour {
         // Když hráč klikne na tlačítko přičtou se mu peníze
         if (playerStats == null)
             return;
+        FindObjectOfType<AudioManager>().Play("MoneyForClick");
         playerStats.GetMoney(1);
     }
 
