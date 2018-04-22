@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Monster : MonoBehaviour {
@@ -7,6 +8,8 @@ public class Monster : MonoBehaviour {
     public float nextAttack;
     public LayerMask ignoreLayer = 8;
     public GameObject portalPrefab;
+    public List<GameObject> enemyObjects;
+    public GameObject boss;
 
     private MonsterScriptableObject monster;
     private Slider healthBar;
@@ -20,18 +23,22 @@ public class Monster : MonoBehaviour {
         attackTimer = 10f/monster.attackSpeed;
         nextAttack = attackTimer;
 
-        healthBar = GetComponentInChildren<Slider>();
-        healthBar.maxValue = monsterPrefab.health;
-        healthBar.value = monster.health;
-        healthBar.gameObject.SetActive(false);
+        if (!monster.multiObjectEnemy)
+        {
+            healthBar = GetComponentInChildren<Slider>();
+            healthBar.maxValue = monsterPrefab.health;
+            healthBar.value = monster.health;
+            healthBar.gameObject.SetActive(false);
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
+        EnemyObjectsHealth();
         nextAttack -= Time.deltaTime;
         if (SeesThePlayer())
         {
-            if(monster.ranged)
+            if(monster.ranged && IsCloseEnough()) //EDITED
             {
                 Stop();
                 ShootAtThePlayer();
@@ -94,13 +101,41 @@ public class Monster : MonoBehaviour {
 
     void TakeDamage(int amount)
     {
+        if (monster.multiObjectEnemy && EnemyObjectsHealth() <= 0)
+        {
+            MonsterDie();
+        }
+        else if (monster.multiObjectEnemy && EnemyObjectsHealth() > 0) return;
+
         monster.health -= amount;
         if (monster.health <= 0)
         {
-            SpawnPortalOnDeath();
-            FindObjectOfType<AudioManager>().Play("MonsterDeath");
-            Destroy(gameObject);
+            MonsterDie();
         }
+    }
+
+    void MonsterDie()
+    {
+        if(monster.bossObject)
+        {
+            boss.GetComponent<Monster>().enemyObjects.Remove(gameObject);
+        }
+        SpawnPortalOnDeath();
+        FindObjectOfType<AudioManager>().Play("MonsterDeath");
+        Destroy(gameObject); 
+    }
+
+    int EnemyObjectsHealth()
+    {
+        int health = 0;
+        foreach(GameObject obj in enemyObjects)
+        {
+            if (obj == null)
+                enemyObjects.Remove(obj);
+            health += obj.GetComponent<Monster>().monster.health;
+        }
+
+        return health;
     }
 
     void SpawnPortalOnDeath()
@@ -113,10 +148,13 @@ public class Monster : MonoBehaviour {
 
     void ShowHP()
     {
-        healthBar.value = monster.health;
-        if(monster.health != monsterPrefab.health)
+        if (!monster.multiObjectEnemy)
         {
-            healthBar.gameObject.SetActive(true);
+            healthBar.value = monster.health;
+            if (monster.health != monsterPrefab.health)
+            {
+                healthBar.gameObject.SetActive(true);
+            }
         }
     }
 
