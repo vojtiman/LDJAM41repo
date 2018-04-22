@@ -14,8 +14,9 @@ public class MonsterScriptableObject : ScriptableObject {
     public int speed = 32;
 
     [Header("Ranged")]
-    public GameObject projectile;
+    public GameObject[] projectiles;
     public float attackDelay = 0;
+    public float projectileSpeed;
     public bool delayedAttacks = false;
     public bool ranged = false;
 

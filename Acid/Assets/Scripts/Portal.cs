@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Portal : MonoBehaviour {
+    public string targetScene;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +17,12 @@ public class Portal : MonoBehaviour {
     {
         if(collision.transform.CompareTag("Player"))
         {
-            GameManager.instance.ChangeScene("Village");
+            Teleport(targetScene);
         }
+    }
+
+    private void Teleport(string scene)
+    {
+        GameManager.instance.ChangeScene(scene);
     }
 }

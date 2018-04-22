@@ -205,8 +205,10 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 2824
-  portalPrefab: {fileID: 1454699565573844, guid: f987279250aed5b4e9197e8ffb173ecf,
+  portalPrefab: {fileID: 1902454328113658, guid: c6f88294aa5e7df4c93806cbdfef579b,
     type: 2}
+  enemyObjects: []
+  boss: {fileID: 0}
 --- !u!114 &114366253215428450
 MonoBehaviour:
   m_ObjectHideFlags: 1
