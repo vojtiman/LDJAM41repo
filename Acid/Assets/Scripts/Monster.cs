@@ -6,6 +6,7 @@ public class Monster : MonoBehaviour {
     public float attackTimer;
     public float nextAttack;
     public LayerMask ignoreLayer = 8;
+    public GameObject portalPrefab;
 
     private MonsterScriptableObject monster;
     private Slider healthBar;
@@ -15,7 +16,7 @@ public class Monster : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        monster = Object.Instantiate(monsterPrefab)as MonsterScriptableObject;
+        monster = Instantiate(monsterPrefab) as MonsterScriptableObject;
         attackTimer = 10f/monster.attackSpeed;
         nextAttack = attackTimer;
 
@@ -34,7 +35,6 @@ public class Monster : MonoBehaviour {
             {
                 Stop();
                 ShootAtThePlayer();
-                print("Y");
             }
             else
             {
@@ -56,6 +56,8 @@ public class Monster : MonoBehaviour {
 
     bool SeesThePlayer()
     {
+        if (player == null)
+            return false;
         hitInfo = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 500 , ~ignoreLayer);
         if(hitInfo.transform != null)
         {
@@ -67,7 +69,7 @@ public class Monster : MonoBehaviour {
 
     bool IsCloseEnough()
     {
-        return (hitInfo.distance <= monster.range);
+        return (hitInfo.distance <= monster.rangeOrMaxDistance);
     }
 
     void Stop()
@@ -94,7 +96,18 @@ public class Monster : MonoBehaviour {
     {
         monster.health -= amount;
         if (monster.health <= 0)
+        {
+            SpawnPortalOnDeath();
             Destroy(gameObject);
+        }
+    }
+
+    void SpawnPortalOnDeath()
+    {
+        if(monster.spawnPortalOnDeath)
+        {
+            Instantiate(portalPrefab, transform.position, Quaternion.Euler(Vector3.zero));
+        }
     }
 
     void ShowHP()
@@ -127,6 +140,7 @@ public class Monster : MonoBehaviour {
             {
                 flightSettings[i].damage = Random.Range(monster.minDamage, monster.maxDamage);
                 flightSettings[i].target = player;
+                flightSettings[i].maxDistance = monster.rangeOrMaxDistance;
             }
 
             nextAttack = attackTimer;

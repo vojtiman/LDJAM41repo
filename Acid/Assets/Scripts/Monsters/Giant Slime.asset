@@ -9,15 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa7199cf34faa7a47b200d0aafd8d396, type: 3}
-  m_Name: Mage
+  m_Name: Giant Slime
   m_EditorClassIdentifier: 
-  monsterName: Mage
-  health: 100
-  rangeOrMaxDistance: 400
-  minDamage: 8
-  maxDamage: 15
-  attackSpeed: 10
-  speed: 64
-  ranged: 1
-  spawnPortalOnDeath: 1
-  projectile: {fileID: 1494443372206188, guid: af0f792817b82d646a4057ae9d34af68, type: 2}
+  monsterName: Giant Slime
+  health: 300
+  rangeOrMaxDistance: 40
+  minDamage: 15
+  maxDamage: 35
+  attackSpeed: 4
+  speed: 16
+  ranged: 0
+  spawnPortalOnDeath: 0
+  projectile: {fileID: 0}

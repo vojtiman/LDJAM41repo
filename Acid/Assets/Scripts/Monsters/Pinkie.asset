@@ -13,10 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Pinkie
   health: 60
-  range: 20
+  rangeOrMaxDistance: 20
   minDamage: 3
   maxDamage: 5
   attackSpeed: 3
   speed: 64
   ranged: 0
+  spawnPortalOnDeath: 0
   projectile: {fileID: 0}

@@ -5,11 +5,14 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject player;
     public GameObject playerPrefab;
+    public GameObject gameOverScreen;
 
 	// Use this for initialization
 	void Start () {
-        Object.DontDestroyOnLoad(gameObject);
+        if (instance != null)
+            Destroy(gameObject);
         instance = this;
+        Object.DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
 
         if(player == null)
@@ -33,7 +36,18 @@ public class GameManager : MonoBehaviour {
 
     public void ChangeScene(string sceneName)
     {
+        gameOverScreen.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
     }
 }

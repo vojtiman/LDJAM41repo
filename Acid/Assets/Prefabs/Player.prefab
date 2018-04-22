@@ -189,11 +189,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   experience: 0
-  strength: 1
-  stamina: 1
-  luck: 1
-  armorLevel: 1
-  weaponLevel: 1
+  strength: 6
+  stamina: 10
+  luck: 7
+  armorLevel: 11
+  weaponLevel: 7
   staminaToHealthMultiplier: 9
   strengthToDamageMultiplier: 4
   luckToCritMultiplier: 2
@@ -299,6 +299,7 @@ MonoBehaviour:
   attackTimer: 0.4
   projectilePrefab: {fileID: 1110526723474606, guid: 2acc04d75a624ff40b4952a5ad7e8cef,
     type: 2}
+  maxDistance: 200
 --- !u!114 &114948132166104292
 MonoBehaviour:
   m_ObjectHideFlags: 1
