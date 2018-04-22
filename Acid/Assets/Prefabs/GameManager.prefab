@@ -2826,20 +2826,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: PunchAttack
+    clip: {fileID: 8300000, guid: b1ef1fa487481c34e99c1181f342c20a, type: 3}
+    loop: 0
+    volume: 0.379
+    pitch: 1.24
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: MoneyForClick
+    clip: {fileID: 8300000, guid: 22e89ecb58aeb9343bcbfc61689a3ad5, type: 3}
+    loop: 0
+    volume: 0.209
+    pitch: 0.73
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: MoneyCollect
+    clip: {fileID: 8300000, guid: c7a5b8098525e3d4a8f2271b28f58eee, type: 3}
+    loop: 0
+    volume: 0.171
+    pitch: 0.6
+    source: {fileID: 0}
+  - name: Upgrade
+    clip: {fileID: 8300000, guid: c6fded90ab383554499e304637944c45, type: 3}
+    loop: 0
+    volume: 0.171
+    pitch: 0.6
+    source: {fileID: 0}
+  - name: RangedAttack
+    clip: {fileID: 8300000, guid: 23a719d68310b12499041fe3ef1aa9bb, type: 3}
+    loop: 0
+    volume: 0.171
+    pitch: 0.6
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 17df30b267f2dff468a2f9f4b3310927, type: 3}
+    loop: 0
+    volume: 0.171
+    pitch: 0.6
+    source: {fileID: 0}
+  - name: MonsterDeath
+    clip: {fileID: 8300000, guid: 98098356276bbe7409f208097eae5db4, type: 3}
+    loop: 0
+    volume: 0.171
+    pitch: 0.6
     source: {fileID: 0}
 --- !u!114 &114850352136850742
 MonoBehaviour:
