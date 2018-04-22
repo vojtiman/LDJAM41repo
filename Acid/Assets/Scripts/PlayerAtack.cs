@@ -48,7 +48,7 @@ public class PlayerAtack : MonoBehaviour {
 
         if(ranged)
         {
-            Vector3 pos = transform.position + (Vector3)dir * (GetComponent<CircleCollider2D>().radius * 3f);
+            Vector3 pos = transform.position + (Vector3)dir * (GetComponent<CircleCollider2D>().radius * 2.5f);
             GameObject projectile = Instantiate(projectilePrefab, pos, Quaternion.Euler(Vector3.zero));
             projectile.GetComponent<ProjectileFlight>().damage = PlayerStats.instance.Damage(dmgMultiplier);
             projectile.GetComponent<ProjectileFlight>().dir = dir;

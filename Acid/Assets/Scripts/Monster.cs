@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour {
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         monster = Object.Instantiate(monsterPrefab)as MonsterScriptableObject;
-        attackTimer = 10/monster.attackSpeed;
+        attackTimer = 10f/monster.attackSpeed;
         nextAttack = attackTimer;
 
         healthBar = GetComponentInChildren<Slider>();
@@ -110,12 +110,16 @@ public class Monster : MonoBehaviour {
     {
         if(nextAttack <= 0)
         {
-            print("ATACK");
             Vector3 pos = transform.position + (player.transform.position - transform.position).normalized * (GetComponent<Collider2D>().bounds.extents.x * 1.9f);
 
             GameObject projectile = Instantiate(monster.projectile, pos , Quaternion.Euler(Vector3.zero));
-            projectile.GetComponent<ProjectileFlight>().damage = Random.Range(monster.minDamage, monster.maxDamage);
-            projectile.GetComponent<ProjectileFlight>().target = player;
+
+            ProjectileFlight[] flightSettings = projectile.GetComponentsInChildren<ProjectileFlight>();
+            for (int i = 0; i < flightSettings.Length; i++)
+            {
+                flightSettings[i].damage = Random.Range(monster.minDamage, monster.maxDamage);
+                flightSettings[i].target = player;
+            }
 
             nextAttack = attackTimer;
         }

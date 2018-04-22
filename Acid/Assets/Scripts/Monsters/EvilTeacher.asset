@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa7199cf34faa7a47b200d0aafd8d396, type: 3}
-  m_Name: Mage
+  m_Name: EvilTeacher
   m_EditorClassIdentifier: 
-  monsterName: Mage
-  health: 100
-  range: 70
-  minDamage: 8
-  maxDamage: 15
-  attackSpeed: 10
-  speed: 64
+  monsterName: Evil Teacher
+  health: 20
+  range: 50
+  minDamage: 666
+  maxDamage: 999
+  attackSpeed: 15
+  speed: 32
   ranged: 1
-  projectile: {fileID: 1043297912874816, guid: 4fae3955ae717a643b558a0e4cef7006, type: 2}
+  projectile: {fileID: 1110526723474606, guid: 2acc04d75a624ff40b4952a5ad7e8cef, type: 2}

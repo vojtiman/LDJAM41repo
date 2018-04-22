@@ -14,7 +14,9 @@ MonoBehaviour:
   monsterName: Goblin
   health: 15
   range: 30
-  minDamage: 7
-  maxDamage: 12
+  minDamage: 6
+  maxDamage: 9
   attackSpeed: 8
   speed: 100
+  ranged: 0
+  projectile: {fileID: 0}

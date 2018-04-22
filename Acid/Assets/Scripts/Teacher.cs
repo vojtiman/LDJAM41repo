@@ -33,9 +33,12 @@ public class Teacher : MonoBehaviour {
     public int actualPriceOfWeapon;
     public int actualPriceOfArmor;
 
+    private GameObject player;
+
     // Use this for initialization
     void Start () {
         instance = this;
+        player = GameObject.FindGameObjectWithTag("Player");
 
         UpdatePricesOfStats();
 	}
@@ -79,7 +82,6 @@ public class Teacher : MonoBehaviour {
 
     void CheckDistance()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, player.transform.position - transform.position, maxDistance + 200);
         if (hitInfo.transform == null)
             return;
