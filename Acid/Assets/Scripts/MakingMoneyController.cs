@@ -7,7 +7,7 @@ using UnityEngine;
 public class MakingMoneyController : MonoBehaviour {
 
     public GameObject moneyMaker;
-    public GameObject player;
+    private GameObject player;
     public Text textSilverCoins;
     public Text textCopperCoins;
     public Text collectText;
@@ -22,17 +22,30 @@ public class MakingMoneyController : MonoBehaviour {
     public float timer = 1;
 
     private PlayerStats playerStats;
-    private int collectebleMoney;
-    private int addingMoney = 1;
+    public int collectebleMoney;
+    public int addingMoney;
+    public GameObject MakingMoneySpot;
+    private CollisionControllerMoneySpot MoneySpotController;
     void Start()
     {
+        MoneySpotController = MakingMoneySpot.GetComponent<CollisionControllerMoneySpot>();
         DontDestroyOnLoad(gameObject);
+        player = GameObject.FindGameObjectWithTag("Player");
         // připojení na hráčův script stats
         playerStats = player.GetComponent<PlayerStats>();
+
     }
 
     private void Update()
     {
+        if(MoneySpotController.StandingOnTrigger() == true)
+        {
+            moneyMaker.SetActive(true);
+        }
+        else
+        {
+            moneyMaker.SetActive(false);
+        }
         //úprava textu
         collectText.text = collectebleMoney + "/" + maximumMoney;
         textSilverCoins.text = playerStats.GetSilverCoins().ToString();
@@ -109,22 +122,5 @@ public class MakingMoneyController : MonoBehaviour {
         playerStats.GetMoney(1);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        // když přijde hráč na místo spustí UI
-        if (collision.CompareTag("Player"))
-        {
-            Debug.Log("coliduje");
-            moneyMaker.SetActive(true);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        // odstraní UI když hráč opustí místo
-        if (collision.CompareTag("Player"))
-        {
-            moneyMaker.SetActive(false);
-        }
-    }
+    
 }
