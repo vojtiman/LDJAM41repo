@@ -110,9 +110,17 @@ public class Monster : MonoBehaviour {
     {
         if(nextAttack <= 0)
         {
-            Vector3 pos = transform.position + (player.transform.position - transform.position).normalized * (GetComponent<Collider2D>().bounds.extents.x * 1.9f);
+            Vector3 pos = transform.position;
 
             GameObject projectile = Instantiate(monster.projectile, pos , Quaternion.Euler(Vector3.zero));
+
+            GameObject[] projectiles = new GameObject[projectile.transform.childCount];
+            projectile.layer = 8;
+            for (int i = 0; i < projectiles.Length; i++)
+            {
+                projectiles[i] = projectile.transform.GetChild(i).gameObject;
+                projectiles[i].layer = 8;
+            }
 
             ProjectileFlight[] flightSettings = projectile.GetComponentsInChildren<ProjectileFlight>();
             for (int i = 0; i < flightSettings.Length; i++)

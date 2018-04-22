@@ -303,7 +303,7 @@ MonoBehaviour:
   nextAttack: 0
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 2824
 --- !u!212 &212758000158784530
 SpriteRenderer:
   m_ObjectHideFlags: 1

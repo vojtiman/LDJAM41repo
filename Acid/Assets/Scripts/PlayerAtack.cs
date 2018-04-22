@@ -37,7 +37,7 @@ public class PlayerAtack : MonoBehaviour {
         if (Input.GetKey(KeyCode.DownArrow))
             dir = new Vector2(0, -1);
         if (Input.GetKey(KeyCode.UpArrow))
-            dir = new Vector2(0, 2);
+            dir = new Vector2(0, 1);
         if (Input.GetKey(KeyCode.LeftArrow))
             dir = new Vector2(-1, 0);
         if (Input.GetKey(KeyCode.RightArrow))
@@ -48,10 +48,11 @@ public class PlayerAtack : MonoBehaviour {
 
         if(ranged)
         {
-            Vector3 pos = transform.position + (Vector3)dir * (GetComponent<CircleCollider2D>().radius * 2.5f);
+            Vector3 pos = transform.position;
             GameObject projectile = Instantiate(projectilePrefab, pos, Quaternion.Euler(Vector3.zero));
             projectile.GetComponent<ProjectileFlight>().damage = PlayerStats.instance.Damage(dmgMultiplier);
             projectile.GetComponent<ProjectileFlight>().dir = dir;
+            projectile.layer = 11;
         }
 
         if (!ranged)

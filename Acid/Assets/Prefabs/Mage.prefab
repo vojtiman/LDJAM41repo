@@ -204,7 +204,7 @@ MonoBehaviour:
   nextAttack: 0
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 2824
 --- !u!114 &114366253215428450
 MonoBehaviour:
   m_ObjectHideFlags: 1
