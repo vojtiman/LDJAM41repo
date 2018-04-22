@@ -35,6 +35,12 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(sceneName);
     }
 
+    public void GoBackToVillage()
+    {
+        player.SetActive(true);
+        ChangeScene("Village");
+    }
+
     public void ExitGame()
     {
         Application.Quit();
