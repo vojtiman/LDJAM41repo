@@ -26,7 +26,7 @@ MonoBehaviour:
   delayedAttacks: 0
   ranged: 1
   coinsReward: 100
-  expReward: 0
+  expReward: 200
   spawnPortalOnDeath: 1
   multiObjectEnemy: 0
   bossObject: 0

@@ -17,6 +17,8 @@ public class GameUI : MonoBehaviour {
     public Text Weapon;
     public Text Armor;
 
+    public Slider expBar;
+
     private bool characterPanelOn = false;
 
 	// Use this for initialization
@@ -28,6 +30,11 @@ public class GameUI : MonoBehaviour {
         CheckInput();
         UpdateToprightInfo();
         UpdateCharacterPanel();
+        if(PlayerStats.instance != null)
+        {
+            expBar.maxValue = PlayerStats.instance.expNext;
+            expBar.value = PlayerStats.instance.experience;
+        }
 	}
 
     void CheckInput()
