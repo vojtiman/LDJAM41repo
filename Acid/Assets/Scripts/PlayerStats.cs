@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour {
     [Header("Leveling")]
     public int level = 1;
     public int experience = 0;
+    public int expNext = 500;
 
     [Header("Stats")]
     public int strength = 1;
@@ -134,5 +135,16 @@ public class PlayerStats : MonoBehaviour {
     public void SetInstance()
     {
         instance = this;
+    }
+
+    public void AddExp(int amount)
+    {
+        experience += amount;
+        if(experience >= expNext)
+        {
+            experience -= expNext;
+            level++;
+            expNext = Mathf.CeilToInt(expNext * 1.4f);
+        }
     }
 }

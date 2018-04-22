@@ -123,6 +123,7 @@ public class Monster : MonoBehaviour {
         SpawnPortalOnDeath();
         FindObjectOfType<AudioManager>().Play("MonsterDeath");
         PlayerStats.instance.GetMoney(monster.coinsReward);
+        PlayerStats.instance.AddExp(monster.expReward);
         Destroy(gameObject); 
     }
 
