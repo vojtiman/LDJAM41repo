@@ -18,7 +18,7 @@ public class Portal : MonoBehaviour {
     {
         if(collision.transform.CompareTag("Player"))
         {
-            GameManager.instance.ChangeScene("Vojta");
+            GameManager.instance.ChangeScene("Village");
         }
     }
 }

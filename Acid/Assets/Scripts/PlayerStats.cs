@@ -53,7 +53,6 @@ public class PlayerStats : MonoBehaviour {
     void UpdateStats()
     {
         maxHealth = stamina * level * staminaToHealthMultiplier * Mathf.CeilToInt(strength * 0.25f);
-
     }
 
     void CheckCombat()
@@ -75,11 +74,14 @@ public class PlayerStats : MonoBehaviour {
 
     public void TakeDamage(int amount)
     {
+        float reduction = 1 - (0.02f * armorLevel);
+        amount = Mathf.CeilToInt(amount * reduction);
+
         health -= amount;
         if (health <= 0)
         {
             GameManager.instance.GameOver();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         inCombat = true;
