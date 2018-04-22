@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7199cf34faa7a47b200d0aafd8d396, type: 3}
+  m_Name: HornetBiggerThanBigger
+  m_EditorClassIdentifier: 
+  monsterName: HornetBigger
+  health: 500
+  rangeOrMaxDistance: 50
+  minDamage: 70
+  maxDamage: 145
+  attackSpeed: 7
+  speed: 150
+  projectile: {fileID: 0}
+  attackDelay: 0
+  delayedAttacks: 0
+  ranged: 0
+  coinsReward: 350
+  expReward: 0
+  spawnPortalOnDeath: 0
+  multiObjectEnemy: 0
+  bossObject: 0

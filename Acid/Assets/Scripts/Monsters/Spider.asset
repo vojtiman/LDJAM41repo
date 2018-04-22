@@ -9,17 +9,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa7199cf34faa7a47b200d0aafd8d396, type: 3}
-  m_Name: Hornet
+  m_Name: Spider
   m_EditorClassIdentifier: 
-  monsterName: Hornet
-  health: 300
+  monsterName: New monster
+  health: 320
   rangeOrMaxDistance: 30
-  minDamage: 50
-  maxDamage: 125
+  minDamage: 55
+  maxDamage: 130
   attackSpeed: 6
-  speed: 128
-  ranged: 0
-  spawnPortalOnDeath: 0
+  speed: 138
   projectile: {fileID: 0}
+  attackDelay: 0
+  delayedAttacks: 0
+  ranged: 0
   coinsReward: 0
   expReward: 0
+  spawnPortalOnDeath: 0
+  multiObjectEnemy: 0
+  bossObject: 0
