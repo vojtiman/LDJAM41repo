@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3a24c65ef2f4a40439766bdfa16ee4f4
 timeCreated: 1524402273
+=======
+guid: 84a3171a8b60a6640aeacbf636a4da42
+timeCreated: 1524402189
+>>>>>>> 837c7ca6779c3ba196948ece4d0f2e1f72cc24b7
 licenseType: Free
 AudioImporter:
   externalObjects: {}
