@@ -19,4 +19,4 @@ MonoBehaviour:
   attackSpeed: 10
   speed: 64
   ranged: 1
-  projectile: {fileID: 1043297912874816, guid: 4fae3955ae717a643b558a0e4cef7006, type: 2}
+  projectile: {fileID: 1067426959003664, guid: 52ca54f10e5d552499823e92f9d40171, type: 2}

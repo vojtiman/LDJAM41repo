@@ -464,21 +464,6 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 61564400507306494, guid: 72185a23c76325444bd3bf6919e7f731,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944492147834234, guid: 72185a23c76325444bd3bf6919e7f731, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114293753276987770, guid: 72185a23c76325444bd3bf6919e7f731,
-        type: 2}
-      propertyPath: monsterPrefab
-      value: 
-      objectReference: {fileID: 11400000, guid: 45846e26e89c1b34da9b5d8c10de867e,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72185a23c76325444bd3bf6919e7f731, type: 2}
   m_IsPrefabParent: 0
