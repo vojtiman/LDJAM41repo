@@ -16,10 +16,10 @@ TextureImporter:
     21300018: PathAndObjects_9
     21300020: PathAndObjects_10
     21300022: PathAndObjects_11
-    21300024: PathAndObjects_12
-    21300026: PathAndObjects_13
-    21300028: PathAndObjects_14
-    21300030: PathAndObjects_15
+    21300024: Market-0
+    21300026: Market-1
+    21300028: Market-2
+    21300030: Market-3
     21300032: StoneGroundDark-left
     21300034: Container-Tomatobottom
     21300036: Container-Tomatotop
@@ -35,7 +35,7 @@ TextureImporter:
     21300056: Water-bottomleft
     21300058: Water-bottom
     21300060: Water-bottomright
-    21300062: PathAndObjects_31
+    21300062: Market-7
     21300064: StoneGroundDark-bottomleft
     21300066: WaterCenter
     21300068: StoneGroundDark-bottomright
@@ -124,19 +124,19 @@ TextureImporter:
     21300234: StoneGroundDark-right
     21300236: StoneGroundLight-center
     21300238: DirtGround-center
-    21300240: PathAndObjects_28
-    21300242: PathAndObjects_29
-    21300244: PathAndObjects_30
+    21300240: Market-4
+    21300242: Market-5
+    21300244: Market-6
     21300246: DirtGround-bottomleft
     21300248: DirtGround-bottom
     21300250: DirtGround-bottomright
     21300252: PathAndObjects_41
     21300254: PathAndObjects_42
     21300256: PathAndObjects_43
-    21300258: PathAndObjects_44
-    21300260: PathAndObjects_45
-    21300262: PathAndObjects_46
-    21300264: PathAndObjects_47
+    21300258: Market-8
+    21300260: Market-9
+    21300262: Market-10
+    21300264: Market-11
     21300266: StoneGroundDarkGrass-bottomright
     21300268: StoneGroundDarkGrass-bottomleft
     21300270: StoneGroundDarkGrass-center
@@ -620,7 +620,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_12
+      name: Market-0
       rect:
         serializedVersion: 2
         x: 384
@@ -634,7 +634,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_13
+      name: Market-1
       rect:
         serializedVersion: 2
         x: 416
@@ -648,7 +648,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_14
+      name: Market-2
       rect:
         serializedVersion: 2
         x: 448
@@ -662,7 +662,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_15
+      name: Market-3
       rect:
         serializedVersion: 2
         x: 480
@@ -844,7 +844,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_28
+      name: Market-4
       rect:
         serializedVersion: 2
         x: 384
@@ -858,7 +858,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_29
+      name: Market-5
       rect:
         serializedVersion: 2
         x: 416
@@ -872,7 +872,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_30
+      name: Market-6
       rect:
         serializedVersion: 2
         x: 448
@@ -886,7 +886,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_31
+      name: Market-7
       rect:
         serializedVersion: 2
         x: 480
@@ -1068,7 +1068,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_44
+      name: Market-8
       rect:
         serializedVersion: 2
         x: 384
@@ -1082,7 +1082,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_45
+      name: Market-9
       rect:
         serializedVersion: 2
         x: 416
@@ -1096,7 +1096,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_46
+      name: Market-10
       rect:
         serializedVersion: 2
         x: 448
@@ -1110,7 +1110,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_47
+      name: Market-11
       rect:
         serializedVersion: 2
         x: 480
