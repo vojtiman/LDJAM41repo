@@ -33,7 +33,6 @@ public class ShowPrice : MonoBehaviour {
                 priceInCopper = Teacher.instance.actualPriceOfWeapon;
                 break;
         }
-        print(priceInCopper + gameObject.name);
         copperCoinsPrice.text = (priceInCopper % 100).ToString();
         silverCoinsPrice.text = ((int)(priceInCopper / 100)).ToString();
     }

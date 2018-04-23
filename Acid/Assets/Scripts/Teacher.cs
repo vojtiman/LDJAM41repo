@@ -67,7 +67,6 @@ public class Teacher : MonoBehaviour {
         for (int i = 0; i < priceShowers.Length; i++)
         {
             priceShowers[i].UpdatePrices();
-            print(priceShowers[i].name);
         }
     }
 

@@ -10,6 +10,7 @@ public class Monster : MonoBehaviour {
     public GameObject portalPrefab;
     public List<GameObject> enemyObjects;
     public GameObject boss;
+    public GameObject bloodSplatter;
 
     private MonsterScriptableObject monster;
     private Slider healthBar;
@@ -104,14 +105,22 @@ public class Monster : MonoBehaviour {
         if (monster.multiObjectEnemy && EnemyObjectsHealth() <= 0)
         {
             MonsterDie();
+            return;
         }
         else if (monster.multiObjectEnemy && EnemyObjectsHealth() > 0) return;
-
+        
         monster.health -= amount;
         if (monster.health <= 0)
         {
             MonsterDie();
+            return;
         }
+
+        float bloodSplatScale = 1;
+        if (PlayerStats.instance.criticalDamage)
+            bloodSplatScale = 1.5f;
+        GameObject bloodSplat = Instantiate(bloodSplatter, transform.position + new Vector3(0, 16, 0), Quaternion.Euler(Vector3.zero));
+        bloodSplat.transform.localScale = Vector3.Scale(transform.lossyScale, bloodSplat.transform.localScale) * bloodSplatScale;
     }
 
     void MonsterDie()
@@ -124,6 +133,7 @@ public class Monster : MonoBehaviour {
         FindObjectOfType<AudioManager>().Play("MonsterDeath");
         PlayerStats.instance.GetMoney(monster.coinsReward);
         PlayerStats.instance.AddExp(monster.expReward);
+        Instantiate(bloodSplatter, transform.position + new Vector3(0, 16, 0), Quaternion.Euler(Vector3.zero));
         Destroy(gameObject); 
     }
 

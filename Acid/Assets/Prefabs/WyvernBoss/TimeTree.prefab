@@ -142,7 +142,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1662e5440580789488dcfa1fbb8c4bfd, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -277,6 +277,8 @@ MonoBehaviour:
   portalPrefab: {fileID: 0}
   enemyObjects: []
   boss: {fileID: 0}
+  bloodSplatter: {fileID: 1347196073748506, guid: a2ed7c797fa707d44b7c5f74cf5eb061,
+    type: 2}
 --- !u!114 &114810996159136460
 MonoBehaviour:
   m_ObjectHideFlags: 1

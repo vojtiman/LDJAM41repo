@@ -155,16 +155,16 @@ Prefab:
     - target: {fileID: 224784866736775282, guid: 72185a23c76325444bd3bf6919e7f731,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224784866736775282, guid: 72185a23c76325444bd3bf6919e7f731,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1944492147834234, guid: 72185a23c76325444bd3bf6919e7f731, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72185a23c76325444bd3bf6919e7f731, type: 2}
@@ -254,11 +254,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 268112963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 720.1, y: -134.4, z: 0}
+  m_LocalPosition: {x: 720.1, y: -135, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &268112965
 BoxCollider2D:
@@ -449,7 +449,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4797107564411682, guid: 231bd431e33c58641a3cf698e21d0625, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 231bd431e33c58641a3cf698e21d0625, type: 2}
@@ -1275,7 +1275,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1576451496}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1662e5440580789488dcfa1fbb8c4bfd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -21844,7 +21844,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1913081840}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1662e5440580789488dcfa1fbb8c4bfd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

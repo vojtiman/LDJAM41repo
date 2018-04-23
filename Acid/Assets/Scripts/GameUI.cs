@@ -19,6 +19,10 @@ public class GameUI : MonoBehaviour {
 
     public Slider expBar;
 
+    [Header("Weapon indicator")]
+    public Image weaponIndicator;
+    public Sprite[] weapons;
+
     private bool characterPanelOn = false;
 
 	// Use this for initialization
@@ -30,6 +34,7 @@ public class GameUI : MonoBehaviour {
         CheckInput();
         UpdateToprightInfo();
         UpdateCharacterPanel();
+        UpdateWeaponIndicator();
         if(PlayerStats.instance != null)
         {
             expBar.maxValue = PlayerStats.instance.expNext;
@@ -72,5 +77,16 @@ public class GameUI : MonoBehaviour {
         Luck.text = PlayerStats.instance.luck.ToString();
         Weapon.text = PlayerStats.instance.weaponLevel.ToString();
         Armor.text = PlayerStats.instance.armorLevel.ToString();
+    }
+
+    void UpdateWeaponIndicator()
+    {
+        if (PlayerAttack.instance == null)
+            return;
+
+        int weapon = 0; //melee
+        if (PlayerAttack.instance.ranged)
+            weapon = 1;
+        weaponIndicator.sprite = weapons[weapon];
     }
 }
