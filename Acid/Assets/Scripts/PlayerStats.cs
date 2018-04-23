@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour {
     {
         DontDestroyOnLoad(gameObject);
         instance = this;
-        maxHealth = maxHealth = Mathf.Clamp(Mathf.RoundToInt(stamina * staminaToHealthMultiplier + level * 0.25f * staminaToHealthMultiplier + strengthToHealthMultiplier * strength * level * 0.25f), 1, 999999999);
+        maxHealth = Mathf.Clamp(Mathf.RoundToInt(stamina * staminaToHealthMultiplier + level * 0.25f * staminaToHealthMultiplier + strengthToHealthMultiplier * strength * level * 0.25f), 1, 999999999);
         health = maxHealth;
 
         healthBar = GetComponentInChildren<Slider>();
@@ -130,6 +130,32 @@ public class PlayerStats : MonoBehaviour {
         else criticalDamage = false;
 
         return Damage;
+    }
+
+    public int MaxDamage(float dmgMultiplier)
+    {
+        int Damage = Mathf.Clamp(Mathf.RoundToInt(strength * strengthToDamageMultiplier * (level * 0.15f * strengthToDamageMultiplier)), 1, 999999999);
+        Damage = Mathf.CeilToInt(1.2f * Damage * dmgMultiplier * weaponLevel);
+        return Damage;
+    }
+
+    public int MinDamage(float dmgMultiplier)
+    {
+        int Damage = Mathf.Clamp(Mathf.RoundToInt(strength * strengthToDamageMultiplier * (level * 0.15f * strengthToDamageMultiplier)), 1, 999999999);
+        Damage = Mathf.CeilToInt(0.8f * Damage * dmgMultiplier * weaponLevel);
+        return Damage;
+    }
+
+    public int CritChance()
+    {
+        int critChance = luck * luckToCritMultiplier;
+        return critChance;
+    }
+
+    public int DamageReduction()
+    {
+        int dmgReduction = armorLevel * 2;
+        return dmgReduction;
     }
 
     void ShowHP()

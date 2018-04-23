@@ -66,7 +66,6 @@ public class MakingMoneyController : MonoBehaviour {
         timeTillNext -= Time.deltaTime;
         if (timeTillNext <=0)
         {
-
             if(collectebleMoney < maximumMoney)
             {
                 collectebleMoney += addingMoney;
@@ -85,12 +84,7 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins()>= 1)
         {
-
-            int random = Random.Range(1, 6);
-            if(random == 5)
-            {
-                addingMoney += 1;
-            }
+            addingMoney += 1;
             maximumMoney += 1;
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-100);
@@ -103,9 +97,7 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins() >= 10)
         {
-            int random = Random.Range(1, 4);
-            if (random == 5)
-                addingMoney += 4;
+            addingMoney += 4;
             maximumMoney += 10;
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-1000);
@@ -119,9 +111,7 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins()>=100)
         {
-            int random = Random.Range(1, 3);
-            if(random == 2)
-                addingMoney += 10;
+            addingMoney += 10;
             maximumMoney += 100;
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-10000);

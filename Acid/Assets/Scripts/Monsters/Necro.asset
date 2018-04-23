@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7199cf34faa7a47b200d0aafd8d396, type: 3}
+  m_Name: Necro
+  m_EditorClassIdentifier: 
+  monsterName: Necro
+  health: 10000
+  rangeOrMaxDistance: 500
+  minDamage: 500
+  maxDamage: 1500
+  attackSpeed: 2
+  speed: 64
+  projectiles:
+  - {fileID: 1494443372206188, guid: af0f792817b82d646a4057ae9d34af68, type: 2}
+  - {fileID: 1539633778014338, guid: 566e55cbb26515f4eac4b196ee3c6261, type: 2}
+  - {fileID: 1802699478364402, guid: eb69811cdac477943a21c97f1948c09e, type: 2}
+  - {fileID: 1959891736333398, guid: 838d48f2897a1ff43b724023c87666f6, type: 2}
+  - {fileID: 1264039782273312, guid: d140afd486983aa488b3bb4c3913e7b8, type: 2}
+  attackDelay: 0.4
+  projectileSpeed: 300
+  delayedAttacks: 1
+  ranged: 1
+  coinsReward: 500
+  expReward: 10000
+  spawnPortalOnDeath: 1
+  multiObjectEnemy: 0
+  bossObject: 0

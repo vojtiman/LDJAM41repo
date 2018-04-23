@@ -22,11 +22,11 @@ MonoBehaviour:
   - {fileID: 1067426959003664, guid: 52ca54f10e5d552499823e92f9d40171, type: 2}
   - {fileID: 1984860949393292, guid: 95dc3cba9ee2de84b89077bd4a66029f, type: 2}
   - {fileID: 1494443372206188, guid: af0f792817b82d646a4057ae9d34af68, type: 2}
-  attackDelay: 0
+  attackDelay: 0.4
   projectileSpeed: 300
-  delayedAttacks: 0
+  delayedAttacks: 1
   ranged: 1
-  coinsReward: 150
+  coinsReward: 50
   expReward: 250
   spawnPortalOnDeath: 0
   multiObjectEnemy: 0

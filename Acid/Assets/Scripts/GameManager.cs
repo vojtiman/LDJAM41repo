@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKeyDown(KeyCode.Keypad3))
+        /*if(Input.GetKeyDown(KeyCode.Keypad3))
         {
             ChangeScene("Level03");
         }
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Keypad0))
         {
             ChangeScene("Village");
-        }
+        }*/
 	}
 
     public void ChangeScene(string sceneName)

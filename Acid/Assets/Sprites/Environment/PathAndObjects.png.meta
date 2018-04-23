@@ -253,9 +253,9 @@ TextureImporter:
     21300492: PathAndObjects_161
     21300494: PathAndObjects_162
     21300496: Water-center
-    21300498: PathAndObjects_164
-    21300500: PathAndObjects_165
-    21300502: PathAndObjects_166
+    21300498: WoodLarge
+    21300500: WoodBigger
+    21300502: WoodSmall
     21300504: PathAndObjects_167
     21300506: PathAndObjects_168
     21300508: BridgeVertical-topleft
@@ -2748,7 +2748,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_164
+      name: WoodLarge
       rect:
         serializedVersion: 2
         x: 128
@@ -2762,7 +2762,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_165
+      name: WoodBigger
       rect:
         serializedVersion: 2
         x: 160
@@ -2776,7 +2776,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PathAndObjects_166
+      name: WoodSmall
       rect:
         serializedVersion: 2
         x: 192

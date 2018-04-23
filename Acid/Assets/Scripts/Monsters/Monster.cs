@@ -178,25 +178,30 @@ public class Monster : MonoBehaviour {
 
             int x = Random.Range(0, monster.projectiles.Length);
             GameObject projectile = Instantiate(monster.projectiles[x], pos , Quaternion.Euler(Vector3.zero));
+            if (GetComponent<Animator>())
+                GetComponent<Animator>().CrossFade("Attack", 0.1f);
 
-            GameObject[] projectiles = new GameObject[projectile.transform.childCount];
-            projectile.layer = 8;
-            for (int i = 0; i < projectiles.Length; i++)
+            if (projectile.GetComponentsInChildren<ProjectileFlight>() != null)
             {
-                projectiles[i] = projectile.transform.GetChild(i).gameObject;
-                projectiles[i].layer = 8;
-            }
-
-            ProjectileFlight[] flightSettings = projectile.GetComponentsInChildren<ProjectileFlight>();
-            for (int i = 0; i < flightSettings.Length; i++)
-            {
-                flightSettings[i].damage = Random.Range(monster.minDamage, monster.maxDamage);
-                flightSettings[i].target = player;
-                flightSettings[i].maxDistance = monster.rangeOrMaxDistance;
-                flightSettings[i].speed = monster.projectileSpeed;
-                if(monster.delayedAttacks)
+                GameObject[] projectiles = new GameObject[projectile.transform.childCount];
+                projectile.layer = 8;
+                for (int i = 0; i < projectiles.Length; i++)
                 {
-                    flightSettings[i].delay = monster.attackDelay * Mathf.Clamp(i, 1, flightSettings.Length);
+                    projectiles[i] = projectile.transform.GetChild(i).gameObject;
+                    projectiles[i].layer = 8;
+                }
+
+                ProjectileFlight[] flightSettings = projectile.GetComponentsInChildren<ProjectileFlight>();
+                for (int i = 0; i < flightSettings.Length; i++)
+                {
+                    flightSettings[i].damage = Random.Range(monster.minDamage, monster.maxDamage);
+                    flightSettings[i].target = player;
+                    flightSettings[i].maxDistance = monster.rangeOrMaxDistance;
+                    flightSettings[i].speed = monster.projectileSpeed;
+                    if (monster.delayedAttacks)
+                    {
+                        flightSettings[i].delay = monster.attackDelay * Mathf.Clamp(i, 1, flightSettings.Length);
+                    }
                 }
             }
 
