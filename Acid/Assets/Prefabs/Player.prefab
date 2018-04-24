@@ -188,14 +188,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb275809ee2ff7441bb6378eb0bf9c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 10
+  level: 1
   experience: 0
   expNext: 500
-  strength: 50
-  stamina: 100
-  luck: 20
-  armorLevel: 10
-  weaponLevel: 15
+  strength: 1
+  stamina: 1
+  luck: 1
+  armorLevel: 1
+  weaponLevel: 1
   staminaToHealthMultiplier: 7
   strengthToDamageMultiplier: 3
   strengthToHealthMultiplier: 0.5
