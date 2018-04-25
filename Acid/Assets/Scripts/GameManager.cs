@@ -5,20 +5,24 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject player;
     public GameObject playerPrefab;
+    public GameObject newPlayerPrefab;
     public GameObject gameOverScreen;
+    public MakingMoneyController makingMoneyControllerPrefab;
+
+    public bool loaded;
 
 	// Use this for initialization
 	void Start () {
         instance = this;
         SceneManager.sceneLoaded += OnSceneChanged;
-        Object.DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
         SpawnPlayerIfNeeded();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKeyDown(KeyCode.Keypad3))
+        /*if(Input.GetKeyDown(KeyCode.Keypad3))
         {
             ChangeScene("Level03");
         }
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Keypad0))
         {
             ChangeScene("Village");
-        }
+        }*/
 	}
 
     public void ChangeScene(string sceneName)
@@ -66,8 +70,16 @@ public class GameManager : MonoBehaviour {
             if (GameObject.FindGameObjectWithTag("PlayerSpawn") != null)
             {
                 GameObject playerSpawner = GameObject.FindGameObjectWithTag("PlayerSpawn");
-                player = Instantiate(playerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
-                player.GetComponent<PlayerStats>().SetInstance();
+                if(loaded)
+                {
+                    player = Instantiate(playerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
+                    player.GetComponent<PlayerStats>().SetInstance();
+                }
+                else
+                {
+                    player = Instantiate(newPlayerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
+                    player.GetComponent<PlayerStats>().SetInstance();
+                }
             }
         }
         else
@@ -81,6 +93,4 @@ public class GameManager : MonoBehaviour {
     {
         SpawnPlayerIfNeeded();
     }
-
-    
 }

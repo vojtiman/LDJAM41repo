@@ -16,8 +16,17 @@ public class GameUI : MonoBehaviour {
     public Text Luck;
     public Text Weapon;
     public Text Armor;
+    public Text Damage;
+    public Text MaxHealth;
+    public Text CritChance;
+    public Text DamageReduction;
+    public Text ActualHP;
 
     public Slider expBar;
+
+    [Header("Weapon indicator")]
+    public Image weaponIndicator;
+    public Sprite[] weapons;
 
     private bool characterPanelOn = false;
 
@@ -30,6 +39,7 @@ public class GameUI : MonoBehaviour {
         CheckInput();
         UpdateToprightInfo();
         UpdateCharacterPanel();
+        UpdateWeaponIndicator();
         if(PlayerStats.instance != null)
         {
             expBar.maxValue = PlayerStats.instance.expNext;
@@ -67,10 +77,28 @@ public class GameUI : MonoBehaviour {
         if (PlayerStats.instance == null)
             return;
 
-        Strength.text = PlayerStats.instance.strength.ToString();
-        Stamina.text = PlayerStats.instance.stamina.ToString();
-        Luck.text = PlayerStats.instance.luck.ToString();
-        Weapon.text = PlayerStats.instance.weaponLevel.ToString();
-        Armor.text = PlayerStats.instance.armorLevel.ToString();
+        PlayerStats ps = PlayerStats.instance;
+
+        Strength.text = ps.strength.ToString();
+        Stamina.text = ps.stamina.ToString();
+        Luck.text = ps.luck.ToString();
+        Weapon.text = ps.weaponLevel.ToString();
+        Armor.text = ps.armorLevel.ToString();
+        Damage.text = "(" + ps.MinDamage(1) + " - " + ps.MaxDamage(1) + ")";
+        MaxHealth.text = ps.maxHealth.ToString();
+        CritChance.text = ps.CritChance() + " %";
+        DamageReduction.text = ps.DamageReduction() + "% (Max. 20 %)";
+        ActualHP.text = ps.health.ToString();
+    }
+
+    void UpdateWeaponIndicator()
+    {
+        if (PlayerAttack.instance == null)
+            return;
+
+        int weapon = 0; //melee
+        if (PlayerAttack.instance.ranged)
+            weapon = 1;
+        weaponIndicator.sprite = weapons[weapon];
     }
 }

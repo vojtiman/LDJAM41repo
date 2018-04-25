@@ -1,0 +1,4 @@
+cc-by-4.0
+gpl-3.0
+
+You have to credit the authors + link to the original game website: https://ldjam.com/events/ludum-dare/41/acid

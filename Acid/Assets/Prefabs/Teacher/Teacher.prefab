@@ -79,13 +79,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dfaf2a8c64f966b499604b52d314b75d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 10
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -169,13 +169,13 @@ MonoBehaviour:
   priceScalingStrength: 1.7
   priceScalingStamina: 1.5
   priceScalingLuck: 1.3
-  priceScalingWeapon: 2.2
-  priceScalingArmor: 2.5
-  priceOfStrength: 30
-  priceOfStamina: 20
-  priceOfLuck: 18
-  priceOfWeapon: 50
-  priceOfArmor: 70
+  priceScalingWeapon: 3
+  priceScalingArmor: 2.2
+  priceOfStrength: 50
+  priceOfStamina: 70
+  priceOfLuck: 50
+  priceOfWeapon: 500
+  priceOfArmor: 300
   actualPriceOfStrength: 0
   actualPriceOfStamina: 0
   actualPriceOfLuck: 0

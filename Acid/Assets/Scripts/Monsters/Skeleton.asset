@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Skeleton
   health: 150
-  rangeOrMaxDistance: 40
+  rangeOrMaxDistance: 35
   minDamage: 10
   maxDamage: 20
   attackSpeed: 6
@@ -23,7 +23,7 @@ MonoBehaviour:
   projectileSpeed: 0
   delayedAttacks: 0
   ranged: 0
-  coinsReward: 40
+  coinsReward: 20
   expReward: 80
   spawnPortalOnDeath: 0
   multiObjectEnemy: 0

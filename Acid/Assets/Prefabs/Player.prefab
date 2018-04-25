@@ -55,7 +55,8 @@ GameObject:
   - component: {fileID: 114926891396461730}
   - component: {fileID: 50875872691755062}
   - component: {fileID: 114336559720303306}
-  - component: {fileID: 58110469407385446}
+  - component: {fileID: 114754016605981044}
+  - component: {fileID: 70549398849032184}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -122,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1218716667635312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16, y: 16, z: -1}
+  m_LocalPosition: {x: -349.25055, y: -486.96533, z: -1}
   m_LocalScale: {x: 1.4, y: 1.225, z: 1}
   m_Children:
   - {fileID: 224041122595010692}
@@ -140,17 +141,17 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1662e5440580789488dcfa1fbb8c4bfd, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58110469407385446
-CircleCollider2D:
+--- !u!70 &70549398849032184
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -162,8 +163,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 10
+  m_Size: {x: 15.999999, y: 26}
+  m_Direction: 0
 --- !u!114 &114107591485057798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,17 +190,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   experience: 0
+  expNext: 500
   strength: 1
   stamina: 1
   luck: 1
   armorLevel: 1
   weaponLevel: 1
-  staminaToHealthMultiplier: 9
-  strengthToDamageMultiplier: 4
+  staminaToHealthMultiplier: 7
+  strengthToDamageMultiplier: 3
+  strengthToHealthMultiplier: 0.5
   luckToCritMultiplier: 2
-  copperCoins: 50
-  maxHealth: 0
+  copperCoins: 3
+  maxHealth: 9
+  health: 0
   inCombat: 0
+  combatTime: 0
+  criticalDamage: 0
 --- !u!114 &114638123617720266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,6 +254,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114754016605981044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218716667635312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038cdf904aca8b48a0b83d48484bd02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: dc8cf9b4cab5a1a429575abfe82b30ca, type: 3}
+  - {fileID: 21300010, guid: dc8cf9b4cab5a1a429575abfe82b30ca, type: 3}
+  - {fileID: 21300012, guid: dc8cf9b4cab5a1a429575abfe82b30ca, type: 3}
 --- !u!114 &114804046825297866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -296,10 +317,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b997a3e4f41f54f8173df3db90cbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTimer: 0.4
+  attackTimer: 0.25
   projectilePrefab: {fileID: 1110526723474606, guid: 2acc04d75a624ff40b4952a5ad7e8cef,
     type: 2}
+  meleeAttackAnimation: {fileID: 1071180244045962, guid: 003ed49949740f248bc9fa5d99326f7e,
+    type: 2}
   maxDistance: 200
+  ranged: 0
+  nextAttack: 0
 --- !u!114 &114948132166104292
 MonoBehaviour:
   m_ObjectHideFlags: 1
