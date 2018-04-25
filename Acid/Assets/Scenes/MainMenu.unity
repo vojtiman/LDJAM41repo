@@ -2283,6 +2283,55 @@ Prefab:
       value: 
       objectReference: {fileID: 1218716667635312, guid: fcd2477491668ab4a9ebb7400fa45104,
         type: 2}
+    - target: {fileID: 114610197897591396, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960344988768514, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: upgradeLevelWood1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755718117357066, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755718117357066, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755718117357066, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114610197897591396, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114610197897591396, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190189382559574, guid: 8ae54330bd886854b9b1d192abedfccf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224146599663844506, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -146
+      objectReference: {fileID: 0}
+    - target: {fileID: 224146599663844506, guid: 8ae54330bd886854b9b1d192abedfccf,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 140
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ae54330bd886854b9b1d192abedfccf, type: 2}
   m_IsPrefabParent: 0

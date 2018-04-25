@@ -18,11 +18,16 @@ public class MakingMoneyController : MonoBehaviour {
     public float timeTillNext = 1;
     public float timer = 1;
 
+
+    public int collectebleMoney; // maximální počet peněz, které se vejdou do skladu
+    public int addingMoney; //Peníze které se přidají za 1s
+    public int upgradeLevelWood1; // dosežený level vylepšení
+    public int actualUpgradeLevelWood1; // aktuální level - bude ukazovat kolik vylepšení chybí do dalšího levlu
+
     private PlayerStats playerStats;
-    public int collectebleMoney;
-    public int addingMoney;
     public GameObject MakingMoneySpot;
     private CollisionControllerMoneySpot MoneySpotController;
+
     void Start()
     {
         if(FindObjectOfType<CollisionControllerMoneySpot>())
@@ -84,8 +89,21 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins()>= 1)
         {
-            addingMoney += 1;
-            maximumMoney += 1;
+            actualUpgradeLevelWood1 += 1;
+            if (actualUpgradeLevelWood1 == upgradeLevelWood1)
+            {
+                upgradeLevelWood1 += 1;
+                actualUpgradeLevelWood1 = 0;
+                
+                addingMoney += 1;
+            }
+            if (upgradeLevelWood1 < 5)
+            {
+                maximumMoney += 1;
+            }
+            else
+                maximumMoney += 2;
+            
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-100);
         }
