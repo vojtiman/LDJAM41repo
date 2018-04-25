@@ -200,8 +200,8 @@ MonoBehaviour:
   strengthToDamageMultiplier: 3
   strengthToHealthMultiplier: 0.5
   luckToCritMultiplier: 2
-  copperCoins: 50
-  maxHealth: 0
+  copperCoins: 3
+  maxHealth: 9
   health: 0
   inCombat: 0
   combatTime: 0

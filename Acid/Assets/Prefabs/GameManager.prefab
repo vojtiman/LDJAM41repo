@@ -2369,6 +2369,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 1218716667635312, guid: 212fdcacb5097a04fb306ff42bbf8e29,
     type: 2}
   gameOverScreen: {fileID: 1117911776760306}
+  makingMoneyController: {fileID: 114960344988768514}
 --- !u!114 &114453904095054256
 MonoBehaviour:
   m_ObjectHideFlags: 1

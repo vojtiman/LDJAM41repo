@@ -18,12 +18,16 @@ public class GameSaver : MonoBehaviour {
         if (PlayerPrefs.GetInt("Saved") != 1) // 1 = saved, 0 = not saved
             return;
         LoadPlayer();
+        LoadTheMoneyMaker();
         print("Loading");
+        GetComponent<GameManager>().loaded = true;
+        GetComponent<GameManager>().ChangeScene("Village");
     }
 
     public void SaveGame()
     {
         SavePlayer();
+        SaveTheMoneyMaker();
         PlayerPrefs.SetInt("Saved", 1);
     }
 
@@ -69,11 +73,19 @@ public class GameSaver : MonoBehaviour {
 
     void SaveTheMoneyMaker()
     {
+        MakingMoneyController moneyMaker = GetComponent<MakingMoneyController>();
 
+        PlayerPrefs.SetInt("moneyMaker.collectableMoney", moneyMaker.collectebleMoney);
+        PlayerPrefs.SetInt("moneyMaker.addingMoney", moneyMaker.addingMoney);
+        PlayerPrefs.SetInt("moneyMaker.maximumMoney", moneyMaker.maximumMoney);
     }
 
     void LoadTheMoneyMaker()
     {
+        MakingMoneyController moneyMaker = GetComponent<MakingMoneyController>();
 
+        moneyMaker.collectebleMoney = PlayerPrefs.GetInt("moneyMaker.collectableMoney");
+        moneyMaker.addingMoney = PlayerPrefs.GetInt("moneyMaker.addingMoney");
+        moneyMaker.maximumMoney = PlayerPrefs.GetInt("moneyMaker.maximumMoney");
     }
 }
