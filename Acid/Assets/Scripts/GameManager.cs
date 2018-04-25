@@ -8,21 +8,22 @@ public class GameManager : MonoBehaviour {
     public GameObject newPlayerPrefab;
     public GameObject gameOverScreen;
     public MakingMoneyController makingMoneyControllerPrefab;
+    public GameObject escMenu;
 
     public bool loaded;
 
 	// Use this for initialization
 	void Start () {
-        instance = this;
+        if(GameManager.instance == null)
+            instance = this;
         SceneManager.sceneLoaded += OnSceneChanged;
         DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
-        SpawnPlayerIfNeeded();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        /*if(Input.GetKeyDown(KeyCode.Keypad3))
+        if(Input.GetKeyDown(KeyCode.Keypad3))
         {
             ChangeScene("Level03");
         }
@@ -37,12 +38,14 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Keypad0))
         {
             ChangeScene("Village");
-        }*/
-	}
+        }
+        EscMenu();
+    }
 
     public void ChangeScene(string sceneName)
     {
-        gameOverScreen.SetActive(false);
+        if(gameOverScreen != null)
+            gameOverScreen.SetActive(false);
         SceneManager.LoadScene(sceneName);
     }
 
@@ -73,13 +76,13 @@ public class GameManager : MonoBehaviour {
                 if(loaded)
                 {
                     player = Instantiate(playerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
-                    player.GetComponent<PlayerStats>().SetInstance();
                 }
                 else
                 {
                     player = Instantiate(newPlayerPrefab, playerSpawner.transform.position, Quaternion.Euler(Vector3.zero));
-                    player.GetComponent<PlayerStats>().SetInstance();
                 }
+
+                player.GetComponent<PlayerStats>().SetInstance();
             }
         }
         else
@@ -91,6 +94,23 @@ public class GameManager : MonoBehaviour {
 
     private void OnSceneChanged(Scene scene, LoadSceneMode mode)
     {
-        SpawnPlayerIfNeeded();
+        if(scene.name != "MainMenu")
+            SpawnPlayerIfNeeded();
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.sceneLoaded -= OnSceneChanged;
+        Destroy(player);
+        Destroy(gameObject);
+        ChangeScene("MainMenu");
+    }
+
+    private void EscMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            escMenu.SetActive(!escMenu.activeSelf);
+    }
+
+
 }
