@@ -65,7 +65,7 @@ public class PlayerAttack : MonoBehaviour {
         if(ranged)
         {
             Vector3 pos = transform.position;
-            GameObject projectile = Instantiate(projectilePrefab, pos, Quaternion.Euler(Vector3.zero));
+            GameObject projectile = Instantiate(projectilePrefab, pos + (Vector3)(dir * 5), Quaternion.Euler(Vector3.zero));
             FindObjectOfType<AudioManager>().Play("RangedAttack");
             projectile.GetComponent<ProjectileFlight>().damage = PlayerStats.instance.Damage(dmgMultiplier);
             projectile.GetComponent<ProjectileFlight>().dir = dir;

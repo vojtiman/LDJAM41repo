@@ -5,37 +5,52 @@ using UnityEngine;
 public class MakingMoneyController : MonoBehaviour {
 
     public GameObject moneyMaker;
+    public int maximumMoney;
+    public GameObject upgrade1;
+    public GameObject upgrade2;
+    public GameObject MakingMoneySpot;
+
+    [Header("Texts")]
     public Text textSilverCoins;
     public Text textCopperCoins;
     public Text collectText;
-    public int maximumMoney;
+
+    [Header("Buttons")]
     public Button unlockButton;
-    public GameObject upgrade1;
-    public GameObject upgrade2;
     public Button upgrade1Button;
     public Button upgrade2Button;
 
+    [Header("Time")]
     public float timeTillNext = 1;
     public float timer = 1;
 
-
+    [Header("Money")]
     public int collectebleMoney; // maximální počet peněz, které se vejdou do skladu
     public int addingMoney; //Peníze které se přidají za 1s
+
+    [Header("Level 1")]
     public int upgradeLevelWood1; // dosežený level vylepšení
     public int actualUpgradeLevelWood1; // aktuální level - bude ukazovat kolik vylepšení chybí do dalšího levlu
     public Text UpgradeLVTextWood1;
 
+    [Header("Level 2")]
     public int upgradeLevelWood2; // dosežený level vylepšení
     public int actualUpgradeLevelWood2; // aktuální level - bude ukazovat kolik vylepšení chybí do dalšího levlu
     public Text UpgradeLVTextWood2;
 
+    [Header("Level 3")]
     public int upgradeLevelWood3; // dosežený level vylepšení
     public int actualUpgradeLevelWood3; // aktuální level - bude ukazovat kolik vylepšení chybí do dalšího levlu
     public Text UpgradeLVTextWood3;
 
+    [Header("Storage")]
+    public int[] storageUpgrades = new int[3];
+    public Text[] storageCopperPriceTexts;
+    public Text[] storageSilverPriceTexts;
+    private int[] storagePrices = new int[3] { 100, 500, 1000 };
+    private int[] storageUpgradeAmount = new int[3] { 50, 600, 1500 };
 
     private PlayerStats playerStats;
-    public GameObject MakingMoneySpot;
     private CollisionControllerMoneySpot MoneySpotController;
 
     void Start()
@@ -49,6 +64,7 @@ public class MakingMoneyController : MonoBehaviour {
         // připojení na hráčův script stats
         if(PlayerStats.instance != null)
             playerStats = PlayerStats.instance;
+        UpdateStoragePrices();
     }
 
     private void Update()
@@ -189,5 +205,27 @@ public class MakingMoneyController : MonoBehaviour {
         else
             textik.text = actualUpgradeLevelWood.ToString() + "/" + upgradeLevelWood.ToString();
     }
-    
+
+    public void UpgradeStorage(int type)
+    {
+        int priceX = storagePrices[type] * storageUpgrades[type];
+        if (PlayerStats.instance.copperCoins >= priceX)
+        {
+            PlayerStats.instance.GetMoney(-priceX);
+            storageUpgrades[type] += 1;
+            maximumMoney += storageUpgradeAmount[type];
+
+            UpdateStoragePrices();
+        }
+        else print("Not enough money mah boii");
+    }
+
+    public void UpdateStoragePrices()
+    {
+        for (int i = 0; i < storageUpgrades.Length; i++)
+        {
+            storageCopperPriceTexts[i].text = ((storagePrices[i] * storageUpgrades[i]) % 100).ToString();
+            storageSilverPriceTexts[i].text = Mathf.FloorToInt((storagePrices[i] * storageUpgrades[i]) / 100).ToString();
+        }
+    }
 }
