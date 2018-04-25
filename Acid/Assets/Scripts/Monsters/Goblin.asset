@@ -17,13 +17,13 @@ MonoBehaviour:
   minDamage: 6
   maxDamage: 9
   attackSpeed: 8
-  speed: 100
+  speed: 96
   projectiles: []
   attackDelay: 0
   projectileSpeed: 0
   delayedAttacks: 0
   ranged: 0
-  coinsReward: 10
+  coinsReward: 50
   expReward: 50
   spawnPortalOnDeath: 0
   multiObjectEnemy: 0

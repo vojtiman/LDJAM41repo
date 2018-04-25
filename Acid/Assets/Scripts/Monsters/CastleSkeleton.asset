@@ -23,7 +23,7 @@ MonoBehaviour:
   projectileSpeed: 0
   delayedAttacks: 0
   ranged: 0
-  coinsReward: 100
+  coinsReward: 500
   expReward: 1000
   spawnPortalOnDeath: 0
   multiObjectEnemy: 0

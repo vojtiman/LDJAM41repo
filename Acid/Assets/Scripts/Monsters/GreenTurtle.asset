@@ -16,14 +16,14 @@ MonoBehaviour:
   rangeOrMaxDistance: 20
   minDamage: 30
   maxDamage: 50
-  attackSpeed: 5
-  speed: 32
+  attackSpeed: 3
+  speed: 64
   projectiles: []
   attackDelay: 0
   projectileSpeed: 0
   delayedAttacks: 0
   ranged: 0
-  coinsReward: 30
+  coinsReward: 150
   expReward: 150
   spawnPortalOnDeath: 0
   multiObjectEnemy: 0

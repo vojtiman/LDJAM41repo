@@ -120,8 +120,6 @@ public class MakingMoneyController : MonoBehaviour {
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-1000);
         }
-
-        
     }
     public void UpgradeWood2()
     {
