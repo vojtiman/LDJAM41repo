@@ -23,6 +23,16 @@ public class MakingMoneyController : MonoBehaviour {
     public int addingMoney; //Peníze které se přidají za 1s
     public int upgradeLevelWood1; // dosežený level vylepšení
     public int actualUpgradeLevelWood1; // aktuální level - bude ukazovat kolik vylepšení chybí do dalšího levlu
+    public Text UpgradeLVTextWood1;
+
+    public int upgradeLevelWood2; // dosežený level vylepšení
+    public int actualUpgradeLevelWood2; // aktuální level - bude ukazovat kolik vylepšení chybí do dalšího levlu
+    public Text UpgradeLVTextWood2;
+
+    public int upgradeLevelWood3; // dosežený level vylepšení
+    public int actualUpgradeLevelWood3; // aktuální level - bude ukazovat kolik vylepšení chybí do dalšího levlu
+    public Text UpgradeLVTextWood3;
+
 
     private PlayerStats playerStats;
     public GameObject MakingMoneySpot;
@@ -32,6 +42,9 @@ public class MakingMoneyController : MonoBehaviour {
     {
         if(FindObjectOfType<CollisionControllerMoneySpot>())
             MoneySpotController = FindObjectOfType<CollisionControllerMoneySpot>();
+        upgradeLevelWood1 = 1;
+        upgradeLevelWood2 = 1;
+        upgradeLevelWood3 = 1;
         DontDestroyOnLoad(gameObject);
         // připojení na hráčův script stats
         if(PlayerStats.instance != null)
@@ -59,6 +72,10 @@ public class MakingMoneyController : MonoBehaviour {
             collectText.text = collectebleMoney + "/" + maximumMoney;
             textSilverCoins.text = playerStats.GetSilverCoins().ToString();
             textCopperCoins.text = playerStats.GetCopperCoins().ToString();
+            WriteText(UpgradeLVTextWood1, upgradeLevelWood1, actualUpgradeLevelWood1);
+            WriteText(UpgradeLVTextWood2, upgradeLevelWood2, actualUpgradeLevelWood2);
+            WriteText(UpgradeLVTextWood3, upgradeLevelWood3, actualUpgradeLevelWood3);
+
         }
         makingMoneyPerMinute();
     }
@@ -97,13 +114,10 @@ public class MakingMoneyController : MonoBehaviour {
                 
                 addingMoney += 1;
             }
-            if (upgradeLevelWood1 < 5)
-            {
-                maximumMoney += 1;
-            }
-            else
-                maximumMoney += 2;
             
+            
+            maximumMoney += 1;
+
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-100);
         }
@@ -115,8 +129,15 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins() >= 10)
         {
-            addingMoney += 4;
+            actualUpgradeLevelWood2 += 1;
+            if (actualUpgradeLevelWood2 == upgradeLevelWood2)
+            {
+                upgradeLevelWood2 += 1;
+                actualUpgradeLevelWood2 = 0;
+                addingMoney += 4;
+            }
             maximumMoney += 10;
+
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-1000);
         }
@@ -129,8 +150,15 @@ public class MakingMoneyController : MonoBehaviour {
             return;
         if (playerStats.GetSilverCoins()>=100)
         {
-            addingMoney += 10;
+            actualUpgradeLevelWood3 += 1;
+            if (actualUpgradeLevelWood3 == upgradeLevelWood3)
+            {
+                upgradeLevelWood3 += 1;
+                actualUpgradeLevelWood3 = 0;
+                addingMoney += 45;
+            }
             maximumMoney += 100;
+            
             FindObjectOfType<AudioManager>().Play("Upgrade");
             playerStats.GetMoney(-10000);
         }
@@ -154,5 +182,14 @@ public class MakingMoneyController : MonoBehaviour {
         playerStats.GetMoney(1);
     }
 
+    private void WriteText(Text textik, int upgradeLevelWood, int actualUpgradeLevelWood)
+    {
+        if (actualUpgradeLevelWood == 0)
+        {
+            textik.text = upgradeLevelWood.ToString();
+        }
+        else
+            textik.text = actualUpgradeLevelWood.ToString() + "/" + upgradeLevelWood.ToString();
+    }
     
 }
