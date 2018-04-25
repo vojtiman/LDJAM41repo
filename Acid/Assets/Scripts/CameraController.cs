@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
@@ -21,9 +19,9 @@ public class CameraController : MonoBehaviour {
             {
                 Vector3 newPos = new Vector3(target.position.x, target.position.y, transform.position.z);
                 newPos = Vector3.Lerp(transform.position, newPos, lerpSpeed);
-                newPos.x = (int)(newPos.x / 0.1f) * 0.1f;
-                newPos.y = (int)(newPos.y / 0.1f) * 0.1f;
-                newPos.z = (int)(newPos.z / 0.1f) * 0.1f;
+                newPos.x = Mathf.CeilToInt(newPos.x / 0.1f) * 0.1f;
+                newPos.y = Mathf.CeilToInt(newPos.y / 0.1f) * 0.1f;
+                newPos.z = Mathf.CeilToInt(newPos.z / 0.1f) * 0.1f;
                 transform.position = newPos;
             }
         }
